@@ -4,9 +4,8 @@ using bookstore_mvc.Data.Base;
 
 namespace bookstore_mvc.Models
 {
-  public class Book : IEntityBase
+  public class NewBookVM
   {
-    [Key]
     public int Id { get; set; }
 
     [Display(Name = "ImageURL")]
@@ -34,13 +33,12 @@ namespace bookstore_mvc.Models
     [Required(ErrorMessage = "Missing Data")]
     public Genre Genre { get; set; }
 
+    [Display(Name = "Author")]
+    [Required(ErrorMessage = "Missing Data")]
     public int AuthorId { get; set; }
-    public Author? Author { get; set; }
 
+    [Display(Name = "Publisher")]
+    [Required(ErrorMessage = "Missing Data")]
     public int PublisherId { get; set; }
-    public Publisher? Publisher { get; set; }
-
-    public List<Book_Order>? Books_Orders { get; set; }
-
   }
 }

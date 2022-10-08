@@ -45,7 +45,7 @@
       <img class="book__cover" src="@item.ImageURL" alt="cover">
       <div class="book__info">
         <h3 class="book__title">@item.Title</h3>
-        <span class="book__author">@item.Author</span>
+        <span class="book__author">@item.Author.Name</span>
       </div>
         <a class="btn" asp-action="Info" asp-route-id="@item.Id"> @* asp-controller="Orders" asp-action="Buy" *@
           @* <span class="btn__text">Info</span> *@

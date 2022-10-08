@@ -50,6 +50,10 @@ img {
      object-position: center center;
 }
 
+select {
+  height: 42px;
+}
+
 html {
   position: relative;
   min-height: 100%;

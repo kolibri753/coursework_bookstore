@@ -1,4 +1,6 @@
-@model Book
+@model NewBookVM
+@using bookstore_mvc.Data;
+
 
 @{
     ViewData["Title"] = "Add a new Book";
@@ -45,14 +47,20 @@
 
 		<div class="form__item">
 	    <label class="item__text" asp-for="Genre"></label>
-	    <input class="item__text" asp-for="Genre" />
+	    <select class="item__text" asp-for="Genre" asp-items="Html.GetEnumSelectList<Genre>()"></select>
    		<span class="item__warning-msg" asp-validation-for="Genre"></span>
 		</div>
 
 		<div class="form__item">
-	    <label class="item__text" asp-for="Author"></label>
-	    <input class="item__text" asp-for="Author" />
-   		<span class="item__warning-msg" asp-validation-for="Author"></span>
+	    <label class="item__text" asp-for="AuthorId"></label>
+	    <select class="item__text" asp-for="AuthorId" asp-items="ViewBag.Authors"></select>
+   		<span class="item__warning-msg" asp-validation-for="AuthorId"></span>
+		</div>
+
+		<div class="form__item">
+	    <label class="item__text" asp-for="PublisherId"></label>
+	    <select class="item__text" asp-for="PublisherId" asp-items="ViewBag.Publishers"></select>
+   		<span class="item__warning-msg" asp-validation-for="PublisherId"></span>
 		</div>
 
 		<div class="form__buttons">

@@ -4,13 +4,13 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 ul,
 ol {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 body,
@@ -20,34 +20,38 @@ h3,
 h4,
 p,
 li {
-  margin: 0;
+	margin: 0;
 }
 
 html {
-  font-family: v.$lato;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+	font-family: v.$lato;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
 }
 
 a {
-  text-decoration: none;
-  font-size: 2em;
+	text-decoration: none;
+	font-size: 2em;
 
-  &:visited {
-    color: inherit;
-  }
+	&:visited {
+		color: inherit;
+	}
 }
 
 i {
-  color: v.$black;
-  font-size: 1.5em;
-  pointer-events: none;
+	color: v.$black;
+	font-size: 1.5em;
+	pointer-events: none;
 
-  @include m.transition(all 0.3s ease-in-out);
+	@include m.transition(all 0.3s ease-in-out);
 }
 
 img {
-  object-fit: cover;
-  object-position: center center;
+	object-fit: cover;
+	object-position: center center;
+}
+
+select {
+	height: 42px;
 }

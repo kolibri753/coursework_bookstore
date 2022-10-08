@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bookstore_mvc.Data;
 
@@ -10,9 +11,10 @@ using bookstore_mvc.Data;
 namespace bookstore_mvc.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221008091846_AddEntityAuthor")]
+    partial class AddEntityAuthor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,11 +31,11 @@ namespace bookstore_mvc.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("ImageURL")
+                    b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("ImageURL")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -64,9 +66,6 @@ namespace bookstore_mvc.Data.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("double");
 
-                    b.Property<int>("PublisherId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -78,8 +77,6 @@ namespace bookstore_mvc.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
-
-                    b.HasIndex("PublisherId");
 
                     b.ToTable("Books");
                 });
@@ -156,29 +153,6 @@ namespace bookstore_mvc.Data.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("bookstore_mvc.Models.Publisher", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Biography")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("ImageURL")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Publishers");
-                });
-
             modelBuilder.Entity("bookstore_mvc.Models.Book", b =>
                 {
                     b.HasOne("bookstore_mvc.Models.Author", "Author")
@@ -187,15 +161,7 @@ namespace bookstore_mvc.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("bookstore_mvc.Models.Publisher", "Publisher")
-                        .WithMany("Books")
-                        .HasForeignKey("PublisherId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Author");
-
-                    b.Navigation("Publisher");
                 });
 
             modelBuilder.Entity("bookstore_mvc.Models.Book_Order", b =>
@@ -246,11 +212,6 @@ namespace bookstore_mvc.Data.Migrations
             modelBuilder.Entity("bookstore_mvc.Models.Order", b =>
                 {
                     b.Navigation("Books_Orders");
-                });
-
-            modelBuilder.Entity("bookstore_mvc.Models.Publisher", b =>
-                {
-                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

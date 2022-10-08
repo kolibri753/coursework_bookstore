@@ -1,6 +1,7 @@
 using bookstore_mvc.Data.Services;
 using bookstore_mvc.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace bookstore_mvc.Controllers
 {
@@ -28,33 +29,56 @@ namespace bookstore_mvc.Controllers
 
     public async Task<IActionResult> Index()
     {
-      var data = await _service.GetAllAsync();
+      var data = await _service.GetAllAsync(n => n.Author);
       return View(data);
     }
 
     //Get: Books/Create
     [HttpGet("Create")]
-    public IActionResult Create()
+    public async Task<IActionResult> Create()
     {
+      var dropdownsData = await _service.GetBookDroupownMenuValues();
+
+      ViewBag.Authors = new SelectList(dropdownsData.Authors, "Id", "Name");
+      ViewBag.Publishers = new SelectList(dropdownsData.Publishers, "Id", "Name");
+
       return View();
     }
 
     [HttpPost]
     [Route("Create")]
-    public async Task<IActionResult> Create([Bind("ImageURL,Title,Pages,Price,Quantity,Genre,Author")] Book book)
+    public async Task<IActionResult> Create(NewBookVM book)
     {
       if (!ModelState.IsValid)
       {
+        var dropdownsData = await _service.GetBookDroupownMenuValues();
+
+        ViewBag.Authors = new SelectList(dropdownsData.Authors, "Id", "Name");
+        ViewBag.Publishers = new SelectList(dropdownsData.Publishers, "Id", "Name");
+
         return View(book);
       }
-      await _service.AddAsync(book);
+
+      await _service.AddNewBookAsync(book);
       return RedirectToAction(nameof(Index));
     }
+
+    // [HttpPost]
+    // [Route("Create")]
+    // public async Task<IActionResult> Create([Bind("ImageURL,Title,Pages,Price,Quantity,Genre,Author")] Book book)
+    // {
+    //   if (!ModelState.IsValid)
+    //   {
+    //     return View(book);
+    //   }
+    //   await _service.AddAsync(book);
+    //   return RedirectToAction(nameof(Index));
+    // }
 
     [HttpGet("Info/{id}")]
     public async Task<IActionResult> Info(int id)
     {
-      var bookInfo = await _service.GetByIdAsync(id);
+      var bookInfo = await _service.GetBookByIdAsync(id);
 
       if (bookInfo == null)
       {
@@ -68,27 +92,68 @@ namespace bookstore_mvc.Controllers
     [HttpGet("Edit/{id}")]
     public async Task<IActionResult> Edit(int id)
     {
-      var bookInfo = await _service.GetByIdAsync(id);
+      var bookInfo = await _service.GetBookByIdAsync(id);
 
       if (bookInfo == null)
       {
         return View("NotFound");
       }
 
-      return View(bookInfo);
+      var response = new NewBookVM()
+      {
+        Id = bookInfo.Id,
+        ImageURL = bookInfo.ImageURL,
+        Title = bookInfo.Title,
+        Pages = bookInfo.Pages,
+        Price = bookInfo.Price,
+        Quantity = bookInfo.Quantity,
+        Genre = bookInfo.Genre,
+        AuthorId = bookInfo.AuthorId,
+        PublisherId = bookInfo.PublisherId
+      };
+
+      var dropdownsData = await _service.GetBookDroupownMenuValues();
+
+      ViewBag.Authors = new SelectList(dropdownsData.Authors, "Id", "Name");
+      ViewBag.Publishers = new SelectList(dropdownsData.Publishers, "Id", "Name");
+
+      return View(response);
     }
 
     [HttpPost]
     [Route("Edit/{id}")]
-    public async Task<IActionResult> Edit(int id, [Bind("Id,ImageURL,Title,Pages,Price,Quantity,Genre,Author")] Book book)
+    public async Task<IActionResult> Edit(int id, NewBookVM book)
     {
+      if (id != book.Id)
+      {
+        return View("NotFound");
+      }
+
       if (!ModelState.IsValid)
       {
+        var dropdownsData = await _service.GetBookDroupownMenuValues();
+
+        ViewBag.Authors = new SelectList(dropdownsData.Authors, "Id", "Name");
+        ViewBag.Publishers = new SelectList(dropdownsData.Publishers, "Id", "Name");
+
         return View(book);
       }
-      await _service.UpdateAsync(id, book);
+
+      await _service.UpdateBookAsync(book);
       return RedirectToAction(nameof(Index));
     }
+
+    // [HttpPost]
+    // [Route("Edit/{id}")]
+    // public async Task<IActionResult> Edit(int id, [Bind("Id,ImageURL,Title,Pages,Price,Quantity,Genre,Author")] Book book)
+    // {
+    //   if (!ModelState.IsValid)
+    //   {
+    //     return View(book);
+    //   }
+    //   await _service.UpdateAsync(id, book);
+    //   return RedirectToAction(nameof(Index));
+    // }
 
 
     //Get: Books/Delete/1
@@ -120,7 +185,7 @@ namespace bookstore_mvc.Controllers
       return RedirectToAction(nameof(Index));
     }
 
-    
+
 
     // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     // public IActionResult Error()

@@ -14,11 +14,12 @@
 
 		<div class="info__container">
 			<h2 class="info__item">@Model.Title</h2>
-			<span class="info__text">@Model.Author</span>
+			<span class="info__text">@Model.Author.Name</span>
 			<span class="info__text">Price: <span class="info__text-value">@Model.Price₴</span></span>
 			<span class="info__text">Pages: <span class="info__text-value">@Model.Pages</span></span></span>
 			<span class="info__text">Stock: <span class="info__text-value">@Model.Quantity</span></span></span>
 			<span class="info__text">Genre: <span class="info__text-value">@Model.Genre</span></span></span>
+			<span class="info__text">Publisher: <span class="info__text-value">@Model.Publisher.Name</span></span></span>
 
 			<div class="info__box">
 				<label class="info__text" for="user-quantity">Quantity</label>
