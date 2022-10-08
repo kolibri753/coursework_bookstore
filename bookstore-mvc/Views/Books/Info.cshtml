@@ -1,0 +1,119 @@
+@model Book
+
+@{
+    ViewData["Title"] = "Book Info";
+}
+
+
+<div class="section">
+	<h1 class="section__title">@ViewData["Title"]</h1>
+  
+	<div class="info">
+		<input class="item__text" asp-for="ImageURL" type="hidden"/>
+		<img class="info__img" id="ImagePreview" alt="cover">
+
+		<div class="info__container">
+			<h2 class="info__item">@Model.Title</h2>
+			<span class="info__text">@Model.Author</span>
+			<span class="info__text">Price: <span class="info__text-value">@Model.Price₴</span></span>
+			<span class="info__text">Pages: <span class="info__text-value">@Model.Pages</span></span></span>
+			<span class="info__text">Stock: <span class="info__text-value">@Model.Quantity</span></span></span>
+			<span class="info__text">Genre: <span class="info__text-value">@Model.Genre</span></span></span>
+
+			<div class="info__box">
+				<label class="info__text" for="user-quantity">Quantity</label>
+		    <input class="info__text" id="user-quantity" value="1" size="5"/>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="section__buttons">
+		<a class="btn reversed" asp-action="Index">
+			<i class="fa-solid fa-left-long"></i>
+			<span class="btn__text">Go Back</span>
+		</a>
+		<button class="btn">
+			<span class="btn__text">Buy</span>
+			<span class="btn__text text-red">@Model.Price₴</span>
+	    <i class="fa-solid fa-cart-shopping"></i>
+		</button>
+	</div>
+
+ 	@* <div class="form"> *@
+	  @* <div asp-validation-summary="ModelOnly"></div>
+
+		<div class="form__item">
+	    <label class="item__text" asp-for="ImageURL"></label>
+	    <img class="form__item--img" id="ImagePreview" />
+	    <input class="item__text" asp-for="ImageURL" />
+   		<span class="item__warning-msg" asp-validation-for="ImageURL"></span>
+		</div>
+		
+    <div class="form__item">
+	    <label class="item__text" asp-for="Title"></label>
+	    <input class="item__text" asp-for="Title" />
+   		<span class="item__warning-msg" asp-validation-for="Title"></span>
+		</div>
+
+   <div class="form__item">
+	    <label class="item__text" asp-for="Pages"></label>
+	    <input class="item__text" asp-for="Pages" />
+   		<span class="item__warning-msg" asp-validation-for="Pages"></span>
+		</div>
+
+		<div class="form__item">
+	    <label class="item__text" asp-for="Price"></label>
+	    <input class="item__text" asp-for="Price" />
+   		<span class="item__warning-msg" asp-validation-for="Price"></span>
+		</div>
+
+		<div class="form__item">
+	    <label class="item__text" asp-for="Quantity"></label>
+	    <input class="item__text" asp-for="Quantity" />
+   		<span class="item__warning-msg" asp-validation-for="Quantity"></span>
+		</div>
+
+		<div class="form__item">
+	    <label class="item__text" asp-for="Genre"></label>
+	    <input class="item__text" asp-for="Genre" />
+   		<span class="item__warning-msg" asp-validation-for="Genre"></span>
+		</div>
+
+		<div class="form__item">
+	    <label class="item__text" asp-for="Author"></label>
+	    <input class="item__text" asp-for="Author" />
+   		<span class="item__warning-msg" asp-validation-for="Author"></span>
+		</div>
+
+		<div class="form__buttons">
+	    <a class="btn reversed" asp-action="Index">
+				<i class="fa-solid fa-left-long"></i>
+				<span class="btn__text">Show All</span>
+			</a>
+	    <button class="btn">
+				 <span class="btn__text">Buy</span>
+          <i class="fa-solid fa-cart-shopping"></i>
+			</button> *@
+
+			@* <input class="btn reversed" type="submit" value="Create" /> *@
+
+		@* </div> *@
+  @* </div> *@
+    
+</div>
+
+<a class="fixed-btn" asp-controller="Books" asp-action="Edit" asp-route-id="@Model.Id">
+  <span class="btn__text">Update</span>
+  <i class="fa-solid fa-pen-to-square"></i>
+</a>
+
+@section Scripts{ 
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('ImagePreview');
+            output.src = $("#ImageURL").val();
+            output.style.display = "block";
+        })
+    </script>
+}

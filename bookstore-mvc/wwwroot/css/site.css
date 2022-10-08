@@ -1,0 +1,328 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+  margin: 0;
+}
+
+html {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  font-size: 2em;
+}
+a:visited {
+  color: inherit;
+}
+
+i {
+  color: #000000;
+  font-size: 1.5em;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+
+.fixed-btn,
+.btn {
+  cursor: pointer;
+  color: #000000;
+  background-color: #ffffff;
+  font-size: 1.5em;
+  font-weight: 900;
+  padding: 0.5em;
+  border: 2px solid #000000;
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.3s ease-in-out;
+}
+.fixed-btn__text,
+.btn__text {
+  margin-left: 0.5em;
+}
+.fixed-btn i,
+.btn i {
+  margin-left: 0.5em;
+}
+.fixed-btn:hover,
+.btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+.fixed-btn:hover .text-red,
+.btn:hover .text-red {
+  text-shadow: -1px -1px 0 #dfdfdf, 1px -1px 0 #dfdfdf, -1px 1px 0 #dfdfdf, 1px 1px 0 #dfdfdf;
+}
+.fixed-btn:hover i,
+.btn:hover i {
+  color: #ffffff;
+}
+
+.fixed-btn {
+  position: fixed;
+  background-color: #91e9ff;
+  right: 2em;
+  bottom: 3em;
+  padding: 1em;
+}
+
+.act-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4.2em;
+  height: 4.2em;
+  border: none;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+.act-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+.act-btn:hover i {
+  color: #ffffff;
+}
+.act-btn i {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+.act-list {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  width: 79%;
+}
+
+.act-item {
+  padding: 0.65em;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.active {
+  background-color: #000000;
+  border-left: 1px solid #ffffff;
+}
+.active i {
+  color: #ffffff;
+}
+
+.reversed i {
+  margin: 0 0.5em 0 0;
+}
+
+.text-red {
+  color: #ff0000;
+  transition: all 0.3s ease-in-out;
+}
+
+.section {
+  background-color: #dfdfdf;
+  padding: 1em;
+}
+.section__title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.gallery {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 320px);
+  gap: 1em;
+}
+.gallery__title {
+  grid-column: 1/-1;
+  justify-self: center;
+}
+.gallery__book {
+  position: relative;
+}
+
+.book {
+  background-color: #ffffff;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book__cover {
+  align-self: center;
+  width: 274px;
+  height: 424px;
+}
+.book__info {
+  max-height: 10em;
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+}
+.book__title {
+  text-align: center;
+}
+.book__author {
+  align-self: center;
+}
+
+.form,
+.action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+}
+
+.action {
+  align-items: center;
+}
+
+.form {
+  position: relative;
+  width: 100%;
+  padding: 1em;
+  border: 2px solid #000000;
+}
+.form__item {
+  display: flex;
+  flex-direction: column;
+}
+.form__item--img {
+  display: none;
+  padding: 1em;
+  margin: 1em;
+  background-color: #ffffff;
+  max-width: 300px;
+  max-height: 300px;
+  align-self: center;
+}
+.form__buttons {
+  margin: 1em 0 0 0;
+}
+.form__buttons:before {
+  content: "";
+  background-color: #000000;
+  position: absolute;
+  bottom: 6em;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+}
+
+.section__buttons,
+.form__buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.item__text {
+  font-size: 1.5em;
+}
+.item__text:first-child {
+  margin-left: 1em;
+}
+.item__warning-msg {
+  color: #ff0000;
+}
+
+.info {
+  display: flex;
+  margin-bottom: 1em;
+}
+.info__img {
+  width: 400px;
+  height: 600px;
+  margin-right: 1em;
+}
+.info__container {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.info__text {
+  padding: 0.5em 0.5em 0.5em 0;
+  border-bottom: 1px solid black;
+}
+.info__text-value {
+  color: #1b6bd4;
+}
+.info__box {
+  width: 100%;
+}
+.info__box label {
+  width: 20%;
+}
+.info__box input {
+  padding: 0.5em;
+}
+
+.center-caption {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.img {
+  width: 500px;
+  height: 500px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}/*# sourceMappingURL=site.css.map */
