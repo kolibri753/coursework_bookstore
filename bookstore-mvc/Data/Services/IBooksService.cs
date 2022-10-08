@@ -1,14 +1,10 @@
 using bookstore_mvc.Models;
+using bookstore_mvc.Data.Base;
 
 namespace bookstore_mvc.Data.Services
 {
-  public interface IBooksService
+  public interface IBooksService : IEntityBaseRepository<Book>
     {
-        Task<IEnumerable<Book>> GetAllAsync();
-        Task<Book> GetByIdAsync (int id);
-        Task AddAsync (Book book);
-        Task<Book> UpdateAsync (int id, Book newBook);
-        Task DeleteAsync (int id);
 
     }
 }

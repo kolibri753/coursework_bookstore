@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using bookstore_mvc.Data;
+using bookstore_mvc.Data.Base;
 
 namespace bookstore_mvc.Models
 {
-  public class Book
+  public class Book : IEntityBase
   {
     [Key]
     public int Id { get; set; }
