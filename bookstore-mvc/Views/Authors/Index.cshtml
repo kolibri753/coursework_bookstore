@@ -1,0 +1,21 @@
+@model IEnumerable<Author>
+ @using bookstore_mvc.Data;
+
+@{
+    ViewData["Title"] = "List of Authors";
+}
+
+<div class="section gallery">
+  <h1 class="gallery__title section-title">@ViewData["Title"]</h1>
+
+  @foreach(var item in Model) 
+  {
+    <a class="author" asp-action="Info" asp-route-id="@item.Id">
+      <img class="author__photo" src="@item.ImageURL" alt="photo">
+      <span class="author__name">@item.Name</span>
+    </a>
+  }
+
+</div>
+
+@await Html.PartialAsync("_AddNewItem", "Authors")

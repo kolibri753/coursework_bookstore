@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IBooksService, BooksService>();
+builder.Services.AddScoped<IAuthorsService, AuthorsService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

@@ -18,6 +18,10 @@ footer {
 	line-height: 60px;
 }
 
+textarea {
+	white-space: pre-wrap;
+}
+
 .fixed-btn,
 .btn {
 	cursor: pointer;
@@ -62,6 +66,16 @@ footer {
 	right: 2em;
 	bottom: 3em;
 	padding: 1em;
+
+	& + & {
+		margin-bottom: 4em;
+		background-color: v.$light-red;
+
+		&:hover {
+			background-color: v.$black;
+		}
+	}
+
 }
 
 .act-btn {
@@ -261,6 +275,10 @@ footer {
 	display: flex;
 	margin-bottom: 1em;
 
+	p {
+		white-space: pre-wrap;
+	}
+
 	&__img {
 		width: 400px;
 		height: 600px;
@@ -310,4 +328,75 @@ footer {
 	width: 500px;
 	height: 500px;
 	object-fit: contain;
+}
+
+.author {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+	position: relative;
+	height: 330px;
+
+	&:hover {
+		background-color: aliceblue;
+
+		.author {
+			&__photo {
+				height: 300px;
+				width: 300px;
+			}
+
+			&__name {
+				visibility: hidden;
+			}
+		}
+	}
+
+	&__photo {
+		margin: 0.5em;
+		height: 250px;
+		width: 250px;
+		object-fit: cover;
+		border-radius: 50%;
+	}
+
+	&__name {
+		font-size: 0.8em;
+		color: v.$black;
+	}
+}
+
+.img-container {
+	position: relative;
+	display: inline-block;
+
+	&:hover {
+		img {
+			filter: brightness(50%);
+		}
+
+		.img-text {
+			visibility: visible;
+		}
+	}
+}
+
+.img-text {
+	padding: 0.2em;
+	align-self: center;
+	text-align: center;
+	position: absolute;
+	margin: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	visibility: hidden;
+	color: white;
+}
+
+.books-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
 }

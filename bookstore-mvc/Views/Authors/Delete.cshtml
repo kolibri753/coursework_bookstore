@@ -1,0 +1,58 @@
+@model Author
+
+@{
+    ViewData["Title"] = "Delete Author";
+}
+
+<div class="section">
+	<h1 class="section__title">Delete conformation for "@Model.Name"</h1>
+
+  <div class="info">
+		<input class="item__text" asp-for="ImageURL" type="hidden"/>
+		<img class="info__img" id="ImagePreview" alt="cover">
+  
+    <div class="info__container">
+      <h2 class="info__item">@Model.Name</h2>
+      <p class="info__text">@Model.Biography</p>
+    </div>
+  </div>
+  
+  <div class="section__buttons">
+		<a class="btn reversed" asp-action="Index">
+			<i class="fa-solid fa-left-long"></i>
+			<span class="btn__text">Go Back</span>
+		</a>
+		<form asp-action="Delete" class="form-container">
+			<input type="hidden" asp-for="Id" />
+			<button type="submit" class="btn">
+				<span class="btn__text">Confirm</span>
+				<i class="fa-solid fa-circle-check"></i>
+			</button>
+		</form>
+	</div>
+
+  @if(Model.Books?.Any() == true) 
+  {
+    <h2 class="section__title">List of Books</h2>
+    <div class="books-list">
+      @foreach(var item in Model.Books)
+      {
+        <a class="img-container" asp-controller="Books" asp-action="Info" asp-route-id="@item.Id">
+          <img class="book__cover" src="@item.ImageURL" alt="photo">
+          <span class="img-text">@item.Title</span> 
+        </a>
+      }
+    </div>
+  }
+</div>
+
+
+@section Scripts{ 
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('ImagePreview');
+            output.src = $("#ImageURL").val();
+            output.style.display = "block";
+        })
+    </script>
+}
