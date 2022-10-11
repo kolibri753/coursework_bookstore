@@ -14,7 +14,7 @@
 </div> *@
 
 <div class="section gallery">
-  <h1 class="gallery__title section-title">List of Books</h1>
+  <h1 class="gallery__title section-title">@ViewData["Title"]</h1>
 
   @foreach(var item in Model) 
   {
@@ -48,9 +48,7 @@
         <span class="book__author">@item.Author.Name</span>
       </div>
         <a class="btn" asp-action="Info" asp-route-id="@item.Id"> @* asp-controller="Orders" asp-action="Buy" *@
-          @* <span class="btn__text">Info</span> *@
           <span class="btn__text">@item.Price₴</span>
-          @* <i class="fa-solid fa-cart-shopping"></i> *@
           <i class="fa-solid fa-circle-info"></i>
         </a>
 
@@ -61,7 +59,4 @@
   }
 </div>
 
-<a class="fixed-btn" asp-controller="Books" asp-action="Create">
-  <span class="btn__text">Add New</span>
-  <i class="fa-solid fa-plus"></i>
-</a>
+@await Html.PartialAsync("_AddNewItem", "Books")

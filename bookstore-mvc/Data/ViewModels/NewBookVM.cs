@@ -40,5 +40,7 @@ namespace bookstore_mvc.Models
     [Display(Name = "Publisher")]
     [Required(ErrorMessage = "Missing Data")]
     public int PublisherId { get; set; }
+
+    public List<Book>? Books { get; set; }
   }
 }
