@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using bookstore_mvc.Data;
 using bookstore_mvc.Data.Base;
 
@@ -35,11 +36,12 @@ namespace bookstore_mvc.Models
     public Genre Genre { get; set; }
 
     public int AuthorId { get; set; }
+    [ForeignKey("AuthorId")]
     public Author? Author { get; set; }
 
     public int PublisherId { get; set; }
+    [ForeignKey("PublisherId")]
     public Publisher? Publisher { get; set; }
-
     public List<Book_Order>? Books_Orders { get; set; }
 
   }

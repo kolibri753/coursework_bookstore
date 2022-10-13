@@ -12,12 +12,13 @@ namespace bookstore_mvc.Models
     [Key]
     public int Id { get; set; }
 
-    public double TotalPrice { get; set; }
-    public DateTime StartDate { get; set; }
+    // public double TotalPrice { get; set; }
+    // public DateTime StartDate { get; set; }
+    public string Email { get; set; } = string.Empty;
 
-    public int CustomerId { get; set; }
-    [ForeignKey("CustomerId")]
-    public Customer? Customer { get; set; }
+    public string UserId { get; set; } = string.Empty;
+    // [ForeignKey("CustomerId")]
+    // public Customer? Customer { get; set; }
 
     public List<Book_Order>? Books_Orders { get; set; }
   }

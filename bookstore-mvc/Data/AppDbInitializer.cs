@@ -95,40 +95,40 @@ namespace bookstore_mvc.Data
           context.SaveChanges();
         }
 
-        if (!context.Customers.Any())
-        {
-          context.Customers.AddRange(new List<Customer>()
-          {
-            new Customer()
-            {
-              Name = "Vira",
-              Phone = "123 123 1234",
-              Email = "vahovskavm2003@gmail.com",
-              Address = "Ukraine, Khmelnitskyi",
-              Username = "vira",
-              Password = "1234"
-            },
-            new Customer()
-            {
-              Name = "Petya",
-              Phone = "123 123 1234",
-              Email = "petya@gmail.com",
-              Address = "Ukraine, Khmelnitskyi",
-              Username = "petya",
-              Password = "1234"
-            },
-            new Customer()
-            {
-              Name = "Vanya",
-              Phone = "123 123 1234",
-              Email = "vanya@gmail.com",
-              Address = "Ukraine, Khmelnitskyi",
-              Username = "vanya",
-              Password = "1234"
-            },
-          });
-          context.SaveChanges();
-        }
+        // if (!context.Customers.Any())
+        // {
+        //   context.Customers.AddRange(new List<Customer>()
+        //   {
+        //     new Customer()
+        //     {
+        //       Name = "Vira",
+        //       Phone = "123 123 1234",
+        //       Email = "vahovskavm2003@gmail.com",
+        //       Address = "Ukraine, Khmelnitskyi",
+        //       Username = "vira",
+        //       Password = "1234"
+        //     },
+        //     new Customer()
+        //     {
+        //       Name = "Petya",
+        //       Phone = "123 123 1234",
+        //       Email = "petya@gmail.com",
+        //       Address = "Ukraine, Khmelnitskyi",
+        //       Username = "petya",
+        //       Password = "1234"
+        //     },
+        //     new Customer()
+        //     {
+        //       Name = "Vanya",
+        //       Phone = "123 123 1234",
+        //       Email = "vanya@gmail.com",
+        //       Address = "Ukraine, Khmelnitskyi",
+        //       Username = "vanya",
+        //       Password = "1234"
+        //     },
+        //   });
+        //   context.SaveChanges();
+        // }
 
       }
     }
