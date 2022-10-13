@@ -404,4 +404,31 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
+}
+
+.table {
+  background-color: #ffffff;
+}
+.table__tbody td {
+  font-size: 1.5em;
+}
+.table__tbody img {
+  margin-right: 0;
+  width: 200px;
+  height: 300px;
+}
+.table__buttons {
+  width: 60px;
+}
+.table__buttons a {
+  font-size: 1em;
+}
+.table__buttons i {
+  margin-left: 0;
+}
+.table__tfoot {
+  font-size: 1.5em;
+}
+.table__tfoot a {
+  font-size: 1em;
 }/*# sourceMappingURL=site.css.map */

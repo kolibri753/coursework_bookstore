@@ -1,0 +1,64 @@
+@model ShoppingCartVM
+@using bookstore_mvc.Data.ViewModels;
+
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<div class="section">
+	<h1 class="section__title">@ViewData["Title"]</h1>
+
+  <table class="table">
+    <thead class="table__thead">
+      <tr class="table__tr">
+        <th class="table__th">Quantity</th>
+        <th class="table__th">Cover</th>
+        <th class="table__th">Book</th>
+        <th class="table__th">Price</th>
+        <th class="table__th">Subtotal</th>
+        <th class="table__th"></th>
+        <th class="table__th"></th>
+      </tr>
+    </thead>
+    <tbody class="table__tbody">
+      @foreach (var item in Model.ShoppingCart.ShoppingCartItems) 
+      {
+         <tr class="table__tr">
+          <td class="table__td">@item.Quantity</td>
+          <td class="table__td">
+	        	<img src="@item.Book.ImageURL" class="info__img" id="ImagePreview" alt="cover">
+          </td>
+          <td class="table__td">@item.Book.Title</td>
+          <td class="table__td">@item.Book.Price.ToString("#.## грн'.'")</td>
+          <td class="table__td">@((item.Quantity * item.Book.Price).ToString("#.## грн'.'"))</td>
+          
+          <td class="table__td table__buttons">
+            <a class="btn" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Book.Id">
+      				<i class="fa-solid fa-plus"></i>
+  			    </a>
+          </td>
+          <td class="table__td table__buttons">
+            <a class="btn" asp-controller="Orders" asp-action="RemoveItemFromShoppingCart" asp-route-id="@item.Book.Id">
+      				<i class="fa-solid fa-minus"></i>
+  			    </a>
+          </td>
+
+         </tr>
+      }
+    </tbody>
+    <tfoot class="table__tfoot">
+      <tr class="table__tr">
+        <td class="table__tr" colspan="2">
+          <a class="btn reversed" asp-controller="Books" asp-action="Index">
+      			<i class="fa-solid fa-left-long"></i>
+      			<span class="btn__text">Go Back</span>
+		      </a>
+        </td>
+        <td class="table__tr" colspan="2" style="text-align: right">Total Price:</td>
+        <td class="table__td" colspan="2">@Model.ShoppingCartTotal.ToString("#.## грн'.'")</td>
+        @* <td class="table__td"></td> *@
+      </tr>
+    </tfoot>
+  </table>
+
+</div>

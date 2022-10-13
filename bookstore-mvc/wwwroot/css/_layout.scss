@@ -400,3 +400,40 @@ textarea {
 	flex-wrap: wrap;
 	gap: 1em;
 }
+
+.table {
+	background-color: v.$white;
+
+	&__tbody {
+
+		td {
+			font-size: 1.5em;
+		}
+
+		img {
+			margin-right: 0;
+			width: 200px;
+			height: 300px;
+		}
+	}
+
+	&__buttons {
+		width: 60px;
+
+		a {
+			font-size: 1em;
+		}
+		
+		i {
+			margin-left: 0;
+		}
+	}
+
+	&__tfoot {
+		font-size: 1.5em;
+
+		a { 
+			font-size: 1em;
+		}
+	}
+}
