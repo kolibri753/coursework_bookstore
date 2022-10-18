@@ -29,10 +29,14 @@ html {
 }
 
 a {
+  color: inherit;
   text-decoration: none;
   font-size: 2em;
 }
 a:visited {
+  color: inherit;
+}
+a:hover {
   color: inherit;
 }
 
@@ -358,7 +362,7 @@ textarea {
   height: 330px;
 }
 .author:hover {
-  background-color: aliceblue;
+  background-color: #f0f8ff;
 }
 .author:hover .author__photo {
   height: 300px;
@@ -435,4 +439,71 @@ textarea {
 }
 .table__tfoot a {
   font-size: 1em;
+}
+
+.auth {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 1em solid #dfdfdf;
+  border-radius: 2em;
+}
+.auth__right {
+  width: 50%;
+}
+@media (max-width: 768px) {
+  .auth__right {
+    width: 100%;
+  }
+}
+.auth__left {
+  width: 50%;
+  padding-left: 1em;
+  background: url("../img/bg/auth-bg-4.png") #dfdfdf no-repeat center center;
+  background-size: contain;
+}
+@media (max-width: 768px) {
+  .auth__left {
+    display: none;
+  }
+}
+.auth__content .form {
+  border: none;
+}
+
+.auth-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.auth-list__item {
+  width: 100%;
+  height: 5em;
+  border-bottom: 1em solid #dfdfdf;
+  transition: all 0.3s ease-in-out;
+}
+.auth-list__item:first-child {
+  border-right: 0.5em solid #dfdfdf;
+  border-radius: 1em 0 0 0;
+}
+.auth-list__item:last-child {
+  border-left: 0.5em solid #dfdfdf;
+}
+.auth-list__item--active {
+  border-bottom-color: #ffffff;
+}
+.auth-list__item:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+.auth-list__link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.auth-list__link:hover {
+  text-decoration: none;
 }/*# sourceMappingURL=site.css.map */

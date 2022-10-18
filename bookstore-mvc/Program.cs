@@ -1,6 +1,9 @@
 using bookstore_mvc.Data;
 using bookstore_mvc.Data.Cart;
 using bookstore_mvc.Data.Services;
+using bookstore_mvc.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +13,14 @@ builder.Services.AddScoped<IAuthorsService, AuthorsService>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddMemoryCache();
 builder.Services.AddSession();
+builder.Services.AddAuthentication(options =>
+{
+  options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -27,6 +37,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
   options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
+// builder.Services.AddIdentityCore<ApplicationUser>()
 
 var app = builder.Build();
 
@@ -44,6 +55,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseSession();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -52,6 +64,7 @@ app.MapControllerRoute(
 
 // Seed
 AppDbInitializer.Seed(app);
+AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
 
 app.Run();
 

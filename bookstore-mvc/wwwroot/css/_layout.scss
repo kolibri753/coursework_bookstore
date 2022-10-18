@@ -75,7 +75,6 @@ textarea {
 			background-color: v.$black;
 		}
 	}
-
 }
 
 .act-btn {
@@ -339,7 +338,7 @@ textarea {
 	height: 330px;
 
 	&:hover {
-		background-color: aliceblue;
+		background-color: v.$very-light-blue;
 
 		.author {
 			&__photo {
@@ -405,7 +404,6 @@ textarea {
 	background-color: v.$white;
 
 	&__tbody {
-
 		td {
 			font-size: 1.5em;
 		}
@@ -423,7 +421,7 @@ textarea {
 		a {
 			font-size: 1em;
 		}
-		
+
 		i {
 			margin-left: 0;
 		}
@@ -432,8 +430,91 @@ textarea {
 	&__tfoot {
 		font-size: 1.5em;
 
-		a { 
+		a {
 			font-size: 1em;
 		}
 	}
 }
+
+.auth {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	border: 1em solid v.$light-grey;
+	border-radius: 2em;
+	// outline: 0.1em solid v.$grey(47, 47, 57);
+
+	&__right {
+		width: 50%;
+
+		@include m.respond-to("md") {
+			width: 100%;
+		}
+	}
+
+	&__left {
+		width: 50%;
+		padding-left: 1em;
+		background: url("../img/bg/auth-bg-4.png") v.$light-grey no-repeat center center;
+		background-size: contain;
+
+		@include m.respond-to("md") {
+			display: none;
+		}
+	}
+
+	&__content .form {
+		border: none;
+		// padding: 1em;
+	}
+}
+
+.auth-list {
+  list-style: none;
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+  // border-bottom: 1em solid v.$background;
+  // padding: 1em;
+
+  &__item {
+    width: 100%;
+    height: 5em;
+    border-bottom: 1em solid v.$light-grey;
+    @include m.transition(all 0.3s ease-in-out);
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    &:first-child {
+      border-right: 0.5em solid v.$light-grey;
+      border-radius: 1em 0 0 0;
+    }
+
+    &:last-child {
+      border-left: 0.5em solid v.$light-grey;
+    }
+
+    &--active {
+      border-bottom-color: v.$white;
+    }
+
+    &:hover {
+      background-color: v.$black;
+      color: v.$white;
+    }
+  }
+
+  &__link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+

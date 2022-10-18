@@ -1,0 +1,26 @@
+@{
+  Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<section class="auth">
+  <div class="auth__right">
+    <ul class="auth__list auth-list">
+      <li class="auth-list__item">
+        <a class="auth-list__link" asp-controller="Account" asp-action="Login">Sign In</a>
+      </li>
+      <li class="auth-list__item">
+        <a class="auth-list__link" asp-controller="Account" asp-action="Register">Sign Up</a>
+      </li>
+    </ul>
+
+    <div class="auth__content">
+      @RenderBody()
+    </div>
+  </div>
+
+  <div class="auth__left"></div>
+</section>
+
+@section Scripts{
+  @RenderSection("Scripts", required: false)
+}

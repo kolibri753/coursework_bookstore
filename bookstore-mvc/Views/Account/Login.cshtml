@@ -1,0 +1,42 @@
+@model LoginVM
+@using bookstore_mvc.Data.ViewModels;
+
+@{
+    ViewData["Title"] = "Login to BookStore";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<form class="form" id="account" method="post">
+  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form__item">
+      <label class="item__text" asp-for="Email"></label>
+      <input class="item__text" asp-for="Email" />
+      <span class="item__warning-msg" asp-validation-for="Email"></span>
+    </div>
+    <div class="form__item">
+      <label class="item__text" asp-for="Password"></label>
+      <input class="item__text" asp-for="Password" />
+      <span class="item__warning-msg" asp-validation-for="Password"></span>
+    </div>
+    <div class="form__item">
+      <div class="checkbox">
+      <label asp-for="RememberMe">
+        <input asp-for="RememberMe" />
+        @Html.DisplayNameFor(m => m.RememberMe)
+      </label>
+    </div>
+
+  </div>
+ 
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Log in</button>
+  </div>
+  @* <div class="form-group other-actions">
+    <p>
+      <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+    </p>
+    <p>
+      <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+    </p>
+  </div> *@
+</form>
