@@ -54,6 +54,10 @@ select {
   height: 42px;
 }
 
+.cart-item {
+  margin-left: auto;
+}
+
 html {
   position: relative;
   min-height: 100%;

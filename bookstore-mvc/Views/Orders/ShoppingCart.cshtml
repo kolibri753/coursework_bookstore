@@ -23,7 +23,7 @@
     <tbody class="table__tbody">
       @foreach (var item in Model.ShoppingCart.ShoppingCartItems) 
       {
-         <tr class="table__tr">
+        <tr class="table__tr">
           <td class="table__td">@item.Quantity</td>
           <td class="table__td">
 	        	<img src="@item.Book.ImageURL" class="info__img" id="ImagePreview" alt="cover">
@@ -43,7 +43,7 @@
   			    </a>
           </td>
 
-         </tr>
+        </tr>
       }
     </tbody>
     <tfoot class="table__tfoot">

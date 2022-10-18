@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace bookstore_mvc.Data.ViewComponents
 {
-  public class DisplayQuantity : ViewComponent
+  public class DisplayCartQuantity : ViewComponent
   {
     private readonly ShoppingCart _shoppingCart;
-    public DisplayQuantity(ShoppingCart shoppingCart)
+    public DisplayCartQuantity(ShoppingCart shoppingCart)
     {
       _shoppingCart = shoppingCart;
     }

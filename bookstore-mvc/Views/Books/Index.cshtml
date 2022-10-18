@@ -4,22 +4,11 @@
     ViewData["Title"] = "List of Books";
 }
 
-@* <div class="display">
-<div>@Html.DisplayNameFor(model => model.Title)</div>
-  <div>@Html.DisplayNameFor(model => model.Pages)</div>
-  <div>@Html.DisplayNameFor(model => model.Price)</div>
-  <div>@Html.DisplayNameFor(model => model.Quantity)</div>
-  <div>@Html.DisplayNameFor(model => model.Genre)</div>
-  <div>@Html.DisplayNameFor(model => model.Author)</div>
-</div> *@
-
 <div class="section gallery">
   <h1 class="gallery__title section-title">@ViewData["Title"]</h1>
 
   @foreach(var item in Model) 
   {
-    @* <p class="text">@item.Title - title</p> *@
-    @* <p class="text">@item.Genre - Genre</p> *@
     <div class="gallery__book book">
       <div class="act-list">
         <a class="btn reversed act-item" asp-controller="Books" asp-action="Edit" asp-route-id="@item.Id">
@@ -34,14 +23,6 @@
       <button class="act-btn">
         <i class="fa-solid fa-bars"></i>
       </button>
-      @* <div class="section__buttons">
-        <button class="btn">
-    	    <i class="fa-solid fa-cart-shopping"></i>
-  		  </button>
-        <button class="btn">
-    	    <i class="fa-solid fa-cart-shopping"></i>
-  		  </button>
-      </div> *@
       <img class="book__cover" src="@item.ImageURL" alt="cover">
       <div class="book__info">
         <h3 class="book__title">@item.Title</h3>
@@ -53,9 +34,6 @@
         </a>
 
     </div>
-
-    @* <p class="text-html">@Html.DisplayFor(modelItem => item.Title)</p> *@
-
   }
 </div>
 

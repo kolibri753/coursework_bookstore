@@ -14,6 +14,12 @@ builder.Services.AddSession();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages()
+    .AddMvcOptions(options =>
+    {
+      options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(
+          _ => "The field is required.");
+    });
 
 //--Add DbContext configuration
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnectionString");

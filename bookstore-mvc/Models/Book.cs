@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using bookstore_mvc.Data;
 using bookstore_mvc.Data.Base;
+using bookstore_mvc.Data.Validation;
 
 namespace bookstore_mvc.Models
 {
@@ -16,19 +17,22 @@ namespace bookstore_mvc.Models
 
     [Display(Name = "Title")]
     [Required(ErrorMessage = "Missing Data")]
-    [StringLength(265, MinimumLength = 2, ErrorMessage = "Title must be beetween 2 and 265 chars")]
+    [StringLength(200, MinimumLength = 2, ErrorMessage = "Title must be beetween 2 and 200 chars")]
     public string Title { get; set; } = string.Empty;
 
     [Display(Name = "Pages")]
     [Required(ErrorMessage = "Missing Data")]
+    [OnlyPositiveInt(ErrorMessage = "Only positive number is allowed.")]
     public int Pages { get; set; }
 
     [Display(Name = "Price")]
     [Required(ErrorMessage = "Missing Data")]
+    [Range(0, double.MaxValue, ErrorMessage = "Only positive number is allowed")]
     public double Price { get; set; }
 
     [Display(Name = "Quantity")]
     [Required(ErrorMessage = "Missing Data")]
+    [OnlyPositiveInt(ErrorMessage = "Only positive number is allowed.")]
     public int Quantity { get; set; }
 
     [Display(Name = "Genre")]
