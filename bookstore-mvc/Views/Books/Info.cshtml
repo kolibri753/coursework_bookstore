@@ -42,15 +42,18 @@
 	</div>   
 </div>
 
-<a class="fixed-btn" asp-controller="Books" asp-action="Edit" asp-route-id="@Model.Id">
-  <span class="btn__text">Update</span>
-  <i class="fa-solid fa-pen-to-square"></i>
-</a>
+@if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+	<a class="fixed-btn" asp-controller="Books" asp-action="Edit" asp-route-id="@Model.Id">
+	  <span class="btn__text">Update</span>
+	  <i class="fa-solid fa-pen-to-square"></i>
+	</a>
 
-<a class="fixed-btn" asp-controller="Books" asp-action="Delete" asp-route-id="@Model.Id">
-  <span class="btn__text">Delete</span>
-  <i class="fa-solid fa-trash"></i>
-</a>
+	<a class="fixed-btn" asp-controller="Books" asp-action="Delete" asp-route-id="@Model.Id">
+	  <span class="btn__text">Delete</span>
+	  <i class="fa-solid fa-trash"></i>
+	</a>
+}
 
 @section Scripts{ 
     <script>

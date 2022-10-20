@@ -32,9 +32,8 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Authors" asp-action="">Authors</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Account</a>
-                        </li>
+                        @await Html.PartialAsync("_AuthNavigation")
+                        @* <partial name="_AuthNavigation.cshtml"></partial> *@
 
                         @await Component.InvokeAsync("DisplayCartQuantity")
 

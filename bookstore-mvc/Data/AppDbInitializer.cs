@@ -162,7 +162,7 @@ namespace bookstore_mvc.Data
             Email = adminUserEmail,
             EmailConfirmed = true
           };
-          await userManager.CreateAsync(newAdminUser, "Coding@1234?");
+          await userManager.CreateAsync(newAdminUser, "admin123123");
           await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
         }
 
@@ -179,7 +179,7 @@ namespace bookstore_mvc.Data
             Email = appUserEmail,
             EmailConfirmed = true
           };
-          await userManager.CreateAsync(newAppUser, "Coding@1234?");
+          await userManager.CreateAsync(newAppUser, "123123");
           await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
         }
 

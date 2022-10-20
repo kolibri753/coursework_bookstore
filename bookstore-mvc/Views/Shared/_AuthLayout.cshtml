@@ -23,4 +23,18 @@
 
 @section Scripts{
   @RenderSection("Scripts", required: false)
+
+  <script>
+    const authListLinks = document.querySelectorAll(".auth-list__link");
+    const current = location.pathname;
+
+    console.log(authListLinks);
+    console.log(current);
+
+    authListLinks.forEach((link) => {
+      if(current.indexOf(link.getAttribute("href")) !== -1) {
+        link.parentNode.classList.toggle("auth-list__item--active");
+      }
+    })
+  </script>
 }

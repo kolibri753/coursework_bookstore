@@ -1,6 +1,9 @@
 @model string;
 
-<a class="fixed-btn" asp-controller="@Model" asp-action="Create">
-  <span class="btn__text">Add New</span>
-  <i class="fa-solid fa-plus"></i>
-</a>
+@if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+  <a class="fixed-btn" asp-controller="@Model" asp-action="Create">
+    <span class="btn__text">Add New</span>
+    <i class="fa-solid fa-plus"></i>
+  </a>
+}

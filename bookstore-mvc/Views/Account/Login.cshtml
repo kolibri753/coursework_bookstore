@@ -6,8 +6,16 @@
     Layout = "~/Views/Shared/_AuthLayout.cshtml";
 }
 
-<form class="form" id="account" method="post">
-  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form class="form" id="account" method="post" asp-action="Login">
+  <div asp-validation-summary="All" class="text-danger"></div>
+  <div class="text-danger">
+    @if(TempData["Error"] != null)
+    {
+      <ul class="validation-summary-errors">
+        <li>@TempData["Error"]</li>
+      </ul>
+    }
+  </div>
     <div class="form__item">
       <label class="item__text" asp-for="Email"></label>
       <input class="item__text" asp-for="Email" />
@@ -28,8 +36,8 @@
 
   </div>
  
-  <div class="form-group">
-    <button type="submit" class="btn btn-primary">Log in</button>
+  <div class="form__group">
+    <button type="submit" class="btn">Log in</button>
   </div>
   @* <div class="form-group other-actions">
     <p>

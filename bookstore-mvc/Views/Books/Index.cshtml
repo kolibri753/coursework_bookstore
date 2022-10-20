@@ -10,31 +10,57 @@
   @foreach(var item in Model) 
   {
     <div class="gallery__book book">
-      <div class="act-list">
-        <a class="btn reversed act-item" asp-controller="Books" asp-action="Edit" asp-route-id="@item.Id">
-				  <i class="fa-solid fa-pen-to-square"></i>
-          <span class="btn__text">Update</span>
-        </a>
-        <a class="btn reversed act-item" asp-controller="Books" asp-action="Delete" asp-route-id="@item.Id">
-          <i class="fa-solid fa-trash"></i>
-          <span class="btn__text">Delete</span>
-        </a>
-      </div>
-      <button class="act-btn">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+      @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+      {
+        <div class="act-list">
+          <a class="btn reversed act-item" asp-controller="Books" asp-action="Edit" asp-route-id="@item.Id">
+  				  <i class="fa-solid fa-pen-to-square"></i>
+            <span class="btn__text">Update</span>
+          </a>
+          <a class="btn reversed act-item" asp-controller="Books" asp-action="Delete" asp-route-id="@item.Id">
+            <i class="fa-solid fa-trash"></i>
+            <span class="btn__text">Delete</span>
+          </a>
+        </div>
+        <button class="act-btn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      }
       <img class="book__cover" src="@item.ImageURL" alt="cover">
       <div class="book__info">
         <h3 class="book__title">@item.Title</h3>
         <span class="book__author">@item.Author.Name</span>
       </div>
-        <a class="btn" asp-action="Info" asp-route-id="@item.Id"> @* asp-controller="Orders" asp-action="Buy" *@
+        <a class="btn" asp-action="Info" asp-route-id="@item.Id">
           <span class="btn__text">@item.Price₴</span>
           <i class="fa-solid fa-circle-info"></i>
         </a>
-
     </div>
   }
 </div>
 
 @await Html.PartialAsync("_AddNewItem", "Books")
+
+
+@section Scripts{
+  @* @Scripts.Render("bookstore-mvc/wwwroot/js/scripts/book-actions.js") *@
+  <script>
+    const actBookBtn = document.querySelectorAll(".act-btn");
+
+    actBookBtn.forEach(element => {
+      element.addEventListener("click", function() {
+        element.classList.toggle("active");
+        const actBookList = element.parentNode.querySelector(".act-list");
+
+        if (element.classList.contains("active")) {
+          actBookList.style.display = "flex";
+          console.log("yes");
+        } else {
+          actBookList.style.display = "none";
+          console.log("no");
+        }
+      });
+    });
+
+  </script>
+}

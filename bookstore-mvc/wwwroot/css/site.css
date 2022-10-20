@@ -62,6 +62,10 @@ select {
   margin-left: auto;
 }
 
+.validation-summary-errors {
+  margin-left: 1em;
+}
+
 html {
   position: relative;
   min-height: 100%;
