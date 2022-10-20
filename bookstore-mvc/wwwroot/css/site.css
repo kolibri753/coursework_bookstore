@@ -123,6 +123,10 @@ textarea {
   color: #ffffff;
 }
 
+.list {
+  list-style: none;
+}
+
 .fixed-btn {
   position: fixed;
   background-color: #91e9ff;

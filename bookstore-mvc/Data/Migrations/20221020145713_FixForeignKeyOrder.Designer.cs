@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bookstore_mvc.Data;
 
@@ -10,9 +11,10 @@ using bookstore_mvc.Data;
 namespace bookstore_mvc.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221020145713_FixForeignKeyOrder")]
+    partial class FixForeignKeyOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -108,7 +110,7 @@ namespace bookstore_mvc.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("bookstore_mvc.Models.Book", b =>
@@ -150,7 +152,7 @@ namespace bookstore_mvc.Data.Migrations
 
                     b.HasIndex("PublisherId");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("bookstore_mvc.Models.Book_Order", b =>
@@ -177,7 +179,7 @@ namespace bookstore_mvc.Data.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("Books_Orders", (string)null);
+                    b.ToTable("Books_Orders");
                 });
 
             modelBuilder.Entity("bookstore_mvc.Models.Order", b =>
@@ -192,16 +194,13 @@ namespace bookstore_mvc.Data.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("nameof(UserId)")
                         .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("nameof(UserId)");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("bookstore_mvc.Models.Publisher", b =>
@@ -224,7 +223,7 @@ namespace bookstore_mvc.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Publishers", (string)null);
+                    b.ToTable("Publishers");
                 });
 
             modelBuilder.Entity("bookstore_mvc.Models.ShoppingCartItem", b =>
@@ -247,7 +246,7 @@ namespace bookstore_mvc.Data.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("ShoppingCartItems", (string)null);
+                    b.ToTable("ShoppingCartItems");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -420,7 +419,9 @@ namespace bookstore_mvc.Data.Migrations
                 {
                     b.HasOne("bookstore_mvc.Models.ApplicationUser", "User")
                         .WithMany()
-                        .HasForeignKey("nameof(UserId)");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });

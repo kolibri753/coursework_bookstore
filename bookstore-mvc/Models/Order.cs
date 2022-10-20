@@ -17,8 +17,8 @@ namespace bookstore_mvc.Models
     public string Email { get; set; } = string.Empty;
 
     public string UserId { get; set; } = string.Empty;
-    // [ForeignKey("CustomerId")]
-    // public Customer? Customer { get; set; }
+    [ForeignKey(nameof(UserId))]
+    public ApplicationUser? User { get; set; }
 
     public List<Book_Order>? Books_Orders { get; set; }
   }

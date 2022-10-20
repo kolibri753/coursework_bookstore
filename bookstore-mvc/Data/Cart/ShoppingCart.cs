@@ -37,7 +37,7 @@ namespace bookstore_mvc.Data.Cart
 
     public double GetShoppingCartTotal()
     {
-      return _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Select(i => i.Book.Price * i.Quantity).Sum();
+      return _context.ShoppingCartItems.Where(i => i.ShoppingCartId == ShoppingCartId).Select(i => i.Book.Price * i.Quantity).Sum();
     }
 
     public void AddItemToCart(Book book)
@@ -78,6 +78,13 @@ namespace bookstore_mvc.Data.Cart
         }
       }
       _context.SaveChanges();
+    }
+
+    public async Task ClearShoppingCartAsync()
+    {
+      var items = await _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).ToListAsync();
+      _context.ShoppingCartItems.RemoveRange(items);
+      await _context.SaveChangesAsync();
     }
 
   }

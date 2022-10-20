@@ -10,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IBooksService, BooksService>();
 builder.Services.AddScoped<IAuthorsService, AuthorsService>();
+builder.Services.AddScoped<IOrdersService, OrdersService>();
+
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
@@ -33,13 +35,13 @@ builder.Services.AddRazorPages()
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
-    // Default Password settings.
-    options.Password.RequireDigit = false;
-    options.Password.RequireLowercase = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequiredLength = 6;
-    options.Password.RequiredUniqueChars = 0;
+  // Default Password settings.
+  options.Password.RequireDigit = false;
+  options.Password.RequireLowercase = false;
+  options.Password.RequireNonAlphanumeric = false;
+  options.Password.RequireUppercase = false;
+  options.Password.RequiredLength = 6;
+  options.Password.RequiredUniqueChars = 0;
 });
 
 //--Add DbContext configuration
@@ -48,7 +50,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
   options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
-// builder.Services.AddIdentityCore<ApplicationUser>()
 
 var app = builder.Build();
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using bookstore_mvc.Data.Cart;
 using bookstore_mvc.Data.Services;
@@ -16,16 +17,26 @@ namespace bookstore_mvc.Controllers
   {
     private readonly IBooksService _booksService;
     private readonly ShoppingCart _shoppingCart;
-    // private readonly IOrdersService _ordersService;
+    private readonly IOrdersService _ordersService;
 
-    public OrdersController(IBooksService booksService, ShoppingCart shoppingCart/*, IOrdersService ordersService*/)
+    public OrdersController(IBooksService booksService, ShoppingCart shoppingCart, IOrdersService ordersService)
     {
       _booksService = booksService;
       _shoppingCart = shoppingCart;
-      //   _ordersService = ordersService;
+      _ordersService = ordersService;
     }
 
-    [HttpGet("Orders")]
+    [HttpGet("Index")]
+    public async Task<IActionResult> Index()
+    {
+      string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+      string userRole = User.FindFirstValue(ClaimTypes.Role);
+
+      var orders = await _ordersService.GetOrdersByUserIdAndRoleAsync(userId, userRole);
+      return View(orders);
+    }
+
+    [HttpGet("ShoppingCart")]
     public IActionResult ShoppingCart()
     {
       var items = _shoppingCart.GetShoppingCartItems();
@@ -63,7 +74,18 @@ namespace bookstore_mvc.Controllers
       return RedirectToAction(nameof(ShoppingCart));
     }
 
+    [HttpGet("CompleteOrder")]
+    public async Task<IActionResult> CompleteOrder()
+    {
+      var items = _shoppingCart.GetShoppingCartItems();
+      string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+      string userEmailAddress = User.FindFirstValue(ClaimTypes.Email);
 
+      await _ordersService.StoreOrderAsync(items, userId, userEmailAddress);
+      await _shoppingCart.ClearShoppingCartAsync();
+
+      return View("OrderSuccess");
+    }
 
     // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     // public IActionResult Error()

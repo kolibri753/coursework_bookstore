@@ -1,0 +1,50 @@
+@model List<Order>
+
+@{
+    ViewData["Title"] = "List of Orders";
+}
+
+
+<div class="section">
+	<h1 class="section__title">@ViewData["Title"]</h1>
+
+  <table class="table">
+    <thead class="table__thead">
+      <tr class="table__tr">
+        <th class="table__th ">Order Id</th>
+        <th class="table__th">Books</th>
+        <th class="table__th">Total</th>
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+				{
+				  <th class="table__th">User</th>
+				}
+      </tr>
+    </thead>
+    <tbody class="table__tbody">
+      @foreach (var order in Model)
+      {
+        <tr class="table__tr">
+          <td class="table__td">@order.Id</td>
+          <td class="table__td">
+	        	<ul class="list">
+							@foreach (var item in order.Books_Orders)
+							{
+								<li class="list__item">
+                	<span class="">
+                    @item.Quantity [@item.Price.ToString("#.## грн'.'")] - @item.Book.Title
+                  </span>
+                </li>
+							}
+						</ul>
+          </td>
+          <td class="table__td">@order.Books_Orders.Select(i => i.Book.Price * i.Quantity).Sum().ToString("#.## грн'.'")</td>
+					 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+						{
+							<td class="table__td">@order.User.FullName</td>
+						}
+        </tr>
+      }
+    </tbody>
+  </table>
+    
+</div>

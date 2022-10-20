@@ -10,68 +10,68 @@ namespace bookstore_mvc.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Orders_Customers_CustomerId",
-                table: "Orders");
+            // migrationBuilder.DropTable(
+            //     name: "Customers");
 
-            migrationBuilder.DropTable(
-                name: "Customers");
+            // migrationBuilder.DropIndex(
+            //     name: "IX_Orders_CustomerId",
+            //     table: "Orders");
+            
+            // migrationBuilder.DropForeignKey(
+            //     name: "FK_Orders_Customers_CustomerId",
+            //     table: "Orders");
 
-            migrationBuilder.DropIndex(
-                name: "IX_Orders_CustomerId",
-                table: "Orders");
+            // migrationBuilder.DropPrimaryKey(
+            //     name: "PK_Books_Orders",
+            //     table: "Books_Orders");
 
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Books_Orders",
-                table: "Books_Orders");
+            // migrationBuilder.DropColumn(
+            //     name: "CustomerId",
+            //     table: "Orders");
 
-            migrationBuilder.DropColumn(
-                name: "CustomerId",
-                table: "Orders");
+            // migrationBuilder.DropColumn(
+            //     name: "StartDate",
+            //     table: "Orders");
 
-            migrationBuilder.DropColumn(
-                name: "StartDate",
-                table: "Orders");
+            // migrationBuilder.DropColumn(
+            //     name: "TotalPrice",
+            //     table: "Orders");
 
-            migrationBuilder.DropColumn(
-                name: "TotalPrice",
-                table: "Orders");
+            // migrationBuilder.AddColumn<string>(
+            //     name: "Email",
+            //     table: "Orders",
+            //     type: "longtext",
+            //     nullable: false)
+            //     .Annotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.AddColumn<string>(
-                name: "Email",
-                table: "Orders",
-                type: "longtext",
-                nullable: false)
-                .Annotation("MySql:CharSet", "utf8mb4");
+            // migrationBuilder.AddColumn<string>(
+            //     name: "UserId",
+            //     table: "Orders",
+            //     type: "longtext",
+            //     nullable: false)
+            //     .Annotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.AddColumn<string>(
-                name: "UserId",
-                table: "Orders",
-                type: "longtext",
-                nullable: false)
-                .Annotation("MySql:CharSet", "utf8mb4");
+            // migrationBuilder.AddColumn<int>(
+            //     name: "Id",
+            //     table: "Books_Orders",
+            //     type: "int",
+            //     nullable: false,
+            //     defaultValue: 0)
+            //     .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
 
-            migrationBuilder.AddColumn<int>(
-                name: "Id",
-                table: "Books_Orders",
-                type: "int",
-                nullable: false,
-                defaultValue: 0)
-                .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
+            // migrationBuilder.AddColumn<double>(
+            //     name: "Price",
+            //     table: "Books_Orders",
+            //     type: "double",
+            //     nullable: false,
+            //     defaultValue: 0.0);
 
-            migrationBuilder.AddColumn<double>(
-                name: "Price",
-                table: "Books_Orders",
-                type: "double",
-                nullable: false,
-                defaultValue: 0.0);
-
-            migrationBuilder.AddColumn<int>(
-                name: "Quantity",
-                table: "Books_Orders",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
+            // migrationBuilder.AddColumn<int>(
+            //     name: "Quantity",
+            //     table: "Books_Orders",
+            //     type: "int",
+            //     nullable: false,
+            //     defaultValue: 0);
 
             migrationBuilder.AlterColumn<string>(
                 name: "ImageURL",
@@ -187,10 +187,10 @@ namespace bookstore_mvc.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4")
                 .OldAnnotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Books_Orders",
-                table: "Books_Orders",
-                columns: new[] { "OrderId", "BookId" });
+            // migrationBuilder.AddPrimaryKey(
+            //     name: "PK_Books_Orders",
+            //     table: "Books_Orders",
+            //     columns: new[] { "OrderId", "BookId" });
 
             migrationBuilder.CreateTable(
                 name: "Customers",
