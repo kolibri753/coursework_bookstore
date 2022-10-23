@@ -1,8 +1,8 @@
-@model IEnumerable<Author>
+@model IEnumerable<Publisher>
  @using bookstore_mvc.Data;
 
 @{
-    ViewData["Title"] = "List of Authors";
+    ViewData["Title"] = "List of Publishers";
 }
 
 <div class="section gallery">
@@ -11,11 +11,11 @@
   @foreach(var item in Model) 
   {
     <a class="box" asp-action="Info" asp-route-id="@item.Id">
-      <img class="box__photo" src="@item.ImageURL" alt="photo">
+      <img class="box__img" src="@item.ImageURL" alt="photo">
       <span class="box__name">@item.Name</span>
     </a>
   }
 
 </div>
 
-@await Html.PartialAsync("_AddNewItem", "Authors")
+@await Html.PartialAsync("_AddNewItem", "Publishers")

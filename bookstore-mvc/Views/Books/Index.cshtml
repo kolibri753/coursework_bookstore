@@ -1,4 +1,5 @@
 @model IEnumerable<Book>
+@using bookstore_mvc.Data;
 
 @{
     ViewData["Title"] = "List of Books";
@@ -6,8 +7,22 @@
 
 <div class="section gallery">
   <h1 class="gallery__title section-title">@ViewData["Title"]</h1>
+  
+  <div class="filter">
+    <h3 class="filter__title">Filter:</h3>
+     	<select class="item__text" asp-items="ViewBag.Authors">
+        <option value="-1">---Select Author---</option>
+      </select>
+     	<select class="item__text" asp-items="ViewBag.Publishers">
+        <option value="-1">---Select Publisher---</option>
+      </select>
+  	  <select class="item__text" asp-items="Html.GetEnumSelectList<Genre>()">
+        <option value="-1">---Select Genre---</option>
+      </select>
+  </div>
 
-  @foreach(var item in Model) 
+
+  @foreach(var item in Model)
   {
     <div class="gallery__book book">
       @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))

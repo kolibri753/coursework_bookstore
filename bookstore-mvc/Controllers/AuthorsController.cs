@@ -48,6 +48,7 @@ namespace bookstore_mvc.Controllers
         return View(author);
       }
       await _service.AddAsync(author);
+      
       return RedirectToAction(nameof(Index));
     }
 

@@ -1,10 +1,9 @@
 using System.ComponentModel.DataAnnotations;
-using bookstore_mvc.Data;
 using bookstore_mvc.Data.Base;
 
 namespace bookstore_mvc.Models
 {
-  public class Publisher
+  public class Publisher : IEntityBase
   {
     [Key]
     public int Id { get; set; }
@@ -17,9 +16,9 @@ namespace bookstore_mvc.Models
     [Required(ErrorMessage = "Missing Data")]
     public string Name { get; set; } = string.Empty;
 
-    [Display(Name = "Biography")]
+    [Display(Name = "About")]
     [Required(ErrorMessage = "Missing Data")]
-    public string Biography { get; set; } = string.Empty;
+    public string About { get; set; } = string.Empty;
 
     public List<Book>? Books { get; set; }
   }

@@ -1,0 +1,63 @@
+@model Publisher
+
+@{
+    ViewData["Title"] = "Publisher Info";
+}
+
+<div class="section">
+	<h1 class="section__title">@ViewData["Title"]</h1>
+
+  <div class="info">
+		<input class="item__text" asp-for="ImageURL" type="hidden"/>
+		<img class="info__img--png" id="ImagePreview" alt="cover">
+  
+    <div class="info__container">
+      <h2 class="info__item">@Model.Name</h2>
+      <p class="info__text">@Model.About</p>
+    </div>
+  </div>
+
+  <div class="section__buttons">
+		<a class="btn reversed" asp-action="Index">
+			<i class="fa-solid fa-left-long"></i>
+			<span class="btn__text">Go Back</span>
+		</a>
+	</div>
+
+  @if(Model.Books?.Any() == true) 
+  {
+    <h2 class="section__title">List of Books</h2>
+    <div class="books-list">
+      @foreach(var item in Model.Books) 
+      {
+        <a class="img-container" asp-controller="Books" asp-action="Info" asp-route-id="@item.Id">
+          <img class="book__cover" src="@item.ImageURL" alt="photo">
+          <span class="img-text">@item.Title</span> 
+        </a>
+      }
+    </div>
+  }
+</div>
+
+@if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+  <a class="fixed-btn" asp-controller="Publishers" asp-action="Edit" asp-route-id="@Model.Id">
+    <span class="btn__text">Update</span>
+    <i class="fa-solid fa-pen-to-square"></i>
+  </a>
+
+  <a class="fixed-btn" asp-controller="Publishers" asp-action="Delete" asp-route-id="@Model.Id">
+    <span class="btn__text">Delete</span>
+    <i class="fa-solid fa-trash"></i>
+  </a>
+}
+
+@section Scripts{ 
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('ImagePreview');
+            output.src = $("#ImageURL").val();
+            output.style.display = "block";
+        })
+    </script>
+}

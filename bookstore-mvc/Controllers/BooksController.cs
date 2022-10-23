@@ -27,10 +27,36 @@ namespace bookstore_mvc.Controllers
     //     return await _context.Books.FindAsync(Id);
     // }
 
-    public async Task<IActionResult> Index()
+    // public async Task<IActionResult> Index()
+    // {
+    //   var allBooks = await _service.GetAllAsync(n => n.Author);
+    //   return View(allBooks);
+    // }
+
+
+    public async Task<IActionResult> Search(string searchString)
     {
-      var data = await _service.GetAllAsync(n => n.Author);
-      return View(data);
+      var allBooks = await _service.GetAllAsync(n => n.Author);
+      var dropdownsData = await _service.GetBookDroupownMenuValues();
+
+      ViewBag.Authors = new SelectList(dropdownsData.Authors, "Id", "Name");
+      ViewBag.Publishers = new SelectList(dropdownsData.Publishers, "Id", "Name");
+
+      if (!string.IsNullOrEmpty(searchString))
+      {
+        var searchBooks = allBooks.Where(n => n.Title.Contains(searchString) || n.Author.Name.Contains(searchString)).ToList();
+        if (searchBooks.Any())
+        {
+          return View("Index", searchBooks);
+        }
+        else
+        {
+          return View("NotFound");
+        }
+
+      }
+
+      return View("Index", allBooks);
     }
 
     //Get: Books/Create

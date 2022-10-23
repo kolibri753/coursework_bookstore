@@ -26,11 +26,19 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="">Books</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index">Books</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Authors" asp-action="">Authors</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Authors" asp-action="Index">Authors</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Publishers" asp-action="Index">Publishers</a>
+                        </li>
+
+                        <form asp-controller="Books" asp-action="Search">
+                            <input name="searchString" type="text" placeholder="Search for a book...">
+                            @* <button class="btn" type="submit">Search</button> *@
+                        </form>
 
                         @await Html.PartialAsync("_AuthNavigation")
                         @* <partial name="_AuthNavigation.cshtml"></partial> *@

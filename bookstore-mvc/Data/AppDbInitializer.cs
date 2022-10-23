@@ -43,13 +43,13 @@ namespace bookstore_mvc.Data
             {
               ImageURL = "/img/publishers/bloomsbury.png",
               Name = "Bloomsbury",
-              Biography = "Bloomsbury Publishing plc is a British worldwide publishing house of fiction and non-fiction. It is a constituent of the FTSE SmallCap Index. Bloomsbury's head office is located in Bloomsbury, an area of the London Borough of Camden. It has a US publishing office located in New York City, an India publishing office in New Delhi, an Australia sales office in Sydney CBD and other publishing offices in the UK including in Oxford. The company's growth over the past two decades is primarily attributable to the Harry Potter series by J. K. Rowling and, from 2008, to the development of its academic and professional publishing division."
+              About = "Bloomsbury Publishing plc is a British worldwide publishing house of fiction and non-fiction. It is a constituent of the FTSE SmallCap Index. Bloomsbury's head office is located in Bloomsbury, an area of the London Borough of Camden. It has a US publishing office located in New York City, an India publishing office in New Delhi, an Australia sales office in Sydney CBD and other publishing offices in the UK including in Oxford. The company's growth over the past two decades is primarily attributable to the Harry Potter series by J. K. Rowling and, from 2008, to the development of its academic and professional publishing division."
             },
             new Publisher()
             {
               ImageURL = "/img/publishers/doubleday.png",
               Name = "Doubleday",
-              Biography = "Doubleday is an American publishing company. It was founded as the Doubleday & McClure Company in 1897 and was the largest in the United States by 1947. It published the work of mostly U.S. authors under a number of imprints and distributed them through its own stores. In 2009 Doubleday merged with Knopf Publishing Group to form the Knopf Doubleday Publishing Group, which is now part of Penguin Random House. In 2019, the official website presents Doubleday as an imprint, not a publisher."
+              About = "Doubleday is an American publishing company. It was founded as the Doubleday & McClure Company in 1897 and was the largest in the United States by 1947. It published the work of mostly U.S. authors under a number of imprints and distributed them through its own stores. In 2009 Doubleday merged with Knopf Publishing Group to form the Knopf Doubleday Publishing Group, which is now part of Penguin Random House. In 2019, the official website presents Doubleday as an imprint, not a publisher."
             },
 
           });

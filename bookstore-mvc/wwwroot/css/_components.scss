@@ -1,0 +1,163 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+
+.fixed-btn,
+.btn {
+	cursor: pointer;
+	color: v.$black;
+	background-color: v.$white;
+	font-size: 1.5em;
+	font-weight: 900;
+	padding: 0.5em;
+	border: 2px solid v.$black;
+	border-radius: 0.5em;
+	display: flex;
+	justify-content: space-between;
+	@include m.transition(all 0.3s ease-in-out);
+
+	&__text {
+		& {
+			margin-left: 0.5em;
+		}
+	}
+
+	i {
+		margin-left: 0.5em;
+	}
+
+	&:hover {
+		background-color: v.$black;
+		color: v.$white;
+
+		.text-red {
+			@include m.text-outline(v.$light-grey);
+		}
+
+		i {
+			color: v.$white;
+		}
+	}
+}
+
+.fixed-btn {
+	position: fixed;
+	background-color: v.$light-blue;
+	right: 2em;
+	bottom: 3em;
+	padding: 1em;
+
+	& + & {
+		margin-bottom: 4em;
+		background-color: v.$light-red;
+
+		&:hover {
+			background-color: v.$black;
+		}
+	}
+}
+
+.act-btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 4.2em;
+	height: 4.2em;
+	border: none;
+	background-color: v.$white;
+	@include m.transition(all 0.3s ease-in-out);
+
+	&:hover {
+		background-color: v.$black;
+		color: v.$white;
+
+		i {
+			color: v.$white;
+		}
+	}
+
+	i {
+		position: absolute;
+		top: 1em;
+		right: 1em;
+	}
+}
+
+.act-list {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	flex-direction: column;
+	width: 79%;
+}
+
+.act-item {
+	padding: 0.65em;
+	border: none;
+	border-radius: 0;
+	display: flex;
+	justify-content: center;
+}
+
+.active {
+	background-color: v.$black;
+	border-left: 1px solid v.$white;
+
+	i {
+		color: v.$white;
+	}
+}
+
+.reversed {
+	i {
+		margin: 0 0.5em 0 0;
+	}
+}
+
+.text-red {
+	color: v.$red;
+	@include m.transition(all 0.3s ease-in-out);
+}
+
+.center-caption {
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.img {
+	width: 500px;
+	height: 500px;
+	object-fit: contain;
+}
+
+.img-container {
+	position: relative;
+	display: inline-block;
+
+	&:hover {
+		img {
+			filter: brightness(50%);
+		}
+
+		.img-text {
+			visibility: visible;
+		}
+	}
+}
+
+.img-text {
+	padding: 0.2em;
+	align-self: center;
+	text-align: center;
+	position: absolute;
+	margin: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	visibility: hidden;
+	color: white;
+}
