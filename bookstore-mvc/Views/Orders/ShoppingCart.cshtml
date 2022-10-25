@@ -56,11 +56,22 @@
         </td>
         <td class="table__tr" colspan="2" style="text-align: right">Total Price:</td>
         <td class="table__td" colspan="1">@Model.ShoppingCartTotal.ToString("#.## грн'.'")</td>
+        
         <td class="table__td" colspan="2">
+          @if (User.Identity.IsAuthenticated)
+          {
             <a class="btn" asp-controller="Orders" asp-action="CompleteOrder"> @* CompleteOrder *@
-      			<span class="btn__text">Confirm</span>
-            <i class="fa-solid fa-circle-check"></i>
-		      </a>
+      			  <span class="btn__text">Confirm</span>
+              <i class="fa-solid fa-circle-check"></i>
+		        </a>
+          }
+          else 
+          {
+            <a class="btn" asp-controller="Account" asp-action="Login"> @* CompleteOrder *@
+      			  <span class="btn__text">Confirm</span>
+              <i class="fa-solid fa-circle-check"></i>
+		        </a>
+          }
         </td>
         @* <td class="table__td"></td> *@
       </tr>

@@ -108,7 +108,7 @@ namespace bookstore_mvc.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Authors", (string)null);
                 });
 
             modelBuilder.Entity("bookstore_mvc.Models.Book", b =>
@@ -150,7 +150,7 @@ namespace bookstore_mvc.Data.Migrations
 
                     b.HasIndex("PublisherId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("bookstore_mvc.Models.Book_Order", b =>
@@ -177,7 +177,7 @@ namespace bookstore_mvc.Data.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("Books_Orders");
+                    b.ToTable("Books_Orders", (string)null);
                 });
 
             modelBuilder.Entity("bookstore_mvc.Models.Order", b =>
@@ -198,7 +198,7 @@ namespace bookstore_mvc.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("bookstore_mvc.Models.Publisher", b =>
@@ -221,7 +221,7 @@ namespace bookstore_mvc.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Publishers");
+                    b.ToTable("Publishers", (string)null);
                 });
 
             modelBuilder.Entity("bookstore_mvc.Models.ShoppingCartItem", b =>
@@ -244,7 +244,7 @@ namespace bookstore_mvc.Data.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("ShoppingCartItems");
+                    b.ToTable("ShoppingCartItems", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

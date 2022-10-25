@@ -2,7 +2,7 @@ namespace bookstore_mvc.Data
 {
     public enum Genre
     {
-        Adventure,
+        Adventure = 1,
         Fantasy,
         Dystorian,
         Mystery,

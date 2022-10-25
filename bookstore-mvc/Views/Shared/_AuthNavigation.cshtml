@@ -2,17 +2,18 @@
 
 @if (!User.Identity.IsAuthenticated)
 {
-  <li class="nav-item">
-    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Account</a>
+  <li class="header__item">
+    <a class="text-light" asp-area="" asp-controller="Account" asp-action="Login">Account</a>
+    @* <i class="fa-solid fa-user text-light"></i> *@
   </li>
 }
 else 
 {
-  <li class="nav-item">
-    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">@UserManager.GetUserName(User)</a>
+  <li class="header__item">
+    <a class=" text-light" asp-area="" asp-controller="Account" asp-action="Login">@UserManager.GetUserName(User)</a>
   </li>
-  <li class="nav-item">
-    <form asp-controller="Account" asp-action="Logout">
+  <li class="header__item">
+    <form class="" asp-controller="Account" asp-action="Logout">
       @* <a class="nav-link text-dark" asp-area="" >Logout</a> *@
       <button class="btn">Logout</button>
     </form>

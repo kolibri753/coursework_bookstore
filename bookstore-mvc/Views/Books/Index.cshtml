@@ -10,15 +10,19 @@
   
   <div class="filter">
     <h3 class="filter__title">Filter:</h3>
-     	<select class="item__text" asp-items="ViewBag.Authors">
-        <option value="-1">---Select Author---</option>
+
+    <form class="filter__form" asp-controller="Books" asp-action="Search" id="authors">
+     	<select class="item__text" name="selectedAuthor" asp-items="ViewBag.Authors" onchange="this.form.submit()">
+        <option value="0">Select Author</option>
       </select>
-     	<select class="item__text" asp-items="ViewBag.Publishers">
-        <option value="-1">---Select Publisher---</option>
+     	<select class="item__text" name="selectedPublisher" asp-items="ViewBag.Publishers" onchange="this.form.submit()">
+        <option value="0">Select Publisher</option>
       </select>
-  	  <select class="item__text" asp-items="Html.GetEnumSelectList<Genre>()">
-        <option value="-1">---Select Genre---</option>
+  	  <select class="item__text" name="selectedGenre" asp-items="Html.GetEnumSelectList<Genre>()" onchange="this.form.submit()">
+        <option value="0">Select Genre</option>
       </select>
+      @* <button method="post">Hello</button> *@
+    </form>
   </div>
 
 

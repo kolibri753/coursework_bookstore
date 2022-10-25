@@ -160,12 +160,12 @@ namespace bookstore_mvc.Data
             FullName = "Admin Admin",
             UserName = "admin",
             Email = adminUserEmail,
-            EmailConfirmed = true
+            EmailConfirmed = true,
+            PhoneNumber = "1231231234"
           };
           await userManager.CreateAsync(newAdminUser, "admin123123");
           await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
         }
-
 
         string appUserEmail = "user@gmail.com";
 
@@ -177,7 +177,8 @@ namespace bookstore_mvc.Data
             FullName = "User User",
             UserName = "user",
             Email = appUserEmail,
-            EmailConfirmed = true
+            EmailConfirmed = true,
+            PhoneNumber = "1233211234"
           };
           await userManager.CreateAsync(newAppUser, "123123");
           await userManager.AddToRoleAsync(newAppUser, UserRoles.User);

@@ -56,6 +56,7 @@ img {
 
 select {
   height: 42px;
+  padding-right: 0.5em;
 }
 
 .list {
@@ -85,6 +86,121 @@ footer {
 
 textarea {
   white-space: pre-wrap;
+}
+
+.navbar {
+  display: block;
+  padding: 0;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 992px) {
+  .navbar-collapse {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5em;
+  }
+}
+
+.navbar-toggler {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background-color: rgb(255, 255, 255);
+}
+@media (max-width: 576px) {
+  .navbar-toggler {
+    padding: 0.25em;
+  }
+}
+
+.header {
+  background-color: #000000;
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1em 1em 0.5em 1em;
+  gap: 0.5em 1em;
+  margin-bottom: 1em;
+}
+@media (max-width: 992px) {
+  .header {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+}
+.header__form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__form input {
+  width: 100%;
+  padding: 0.5em 3em 0.5em 1em;
+  border-radius: 2em;
+}
+.header__form i {
+  position: absolute;
+  right: 0.5em;
+}
+.header__list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+@media (max-width: 992px) {
+  .header__list {
+    grid-column: -3/-2;
+    padding: 1em 0;
+    border-top: 5px solid #ffffff;
+    border-bottom: 5px solid #ffffff;
+  }
+}
+.header__item {
+  line-height: 1em;
+}
+.header__links {
+  list-style: none;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+@media (max-width: 992px) {
+  .header__links {
+    grid-column: -3/-2;
+    justify-self: center;
+  }
+  .header__links:first-of-type {
+    padding-top: 1em;
+  }
+}
+@media (max-width: 992px) and (max-width: 992px) {
+  .header__links .header__item:last-child {
+    line-height: 2em;
+  }
+}
+
+.logo {
+  grid-row: 1/3;
+}
+@media (max-width: 992px) {
+  .logo {
+    grid-row: 1/2;
+  }
+}
+.logo__img {
+  width: 4em;
+  height: 4em;
+}
+@media (max-width: 992px) {
+  .logo__img {
+    width: 1.5em;
+    height: 1.5em;
+  }
 }
 
 .section {
@@ -380,10 +496,6 @@ textarea {
   text-decoration: none;
 }
 
-.cart-item {
-  margin-left: auto;
-}
-
 .filter {
   grid-column: 1/-1;
   background-color: #ffffff;
@@ -395,6 +507,12 @@ textarea {
 }
 .filter__title {
   flex-grow: 1;
+}
+.filter__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1em;
 }
 
 .fixed-btn,

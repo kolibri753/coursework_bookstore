@@ -4,13 +4,15 @@
 {
   <li class="nav-item">
     <a class="nav-link text-dark" asp-controller="Orders" asp-action="ShoppingCart">
-      <i class="fa-solid fa-cart-shopping"></i> @Model
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span>@Model</span>
     </a>
   </li>
 } *@
 
-<li class="nav-item cart-item">
-  <a class="nav-link text-dark" asp-controller="Orders" asp-action="ShoppingCart">
-    <i class="fa-solid fa-cart-shopping"></i> @Model
+<li class="header__item">
+  <a class=" text-light" asp-controller="Orders" asp-action="ShoppingCart">
+    <i class="fa-solid fa-cart-shopping text-light"></i>
+    <span>@Model</span>
   </a>
 </li>

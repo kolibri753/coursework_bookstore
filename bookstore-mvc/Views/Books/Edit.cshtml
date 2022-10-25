@@ -1,9 +1,9 @@
 @model NewBookVM
+@using bookstore_mvc.Data;
 
 @{
     ViewData["Title"] = "Edit information about Book";
 }
-
 
 <div class="section action">
     
@@ -45,7 +45,7 @@
 
 		<div class="form__item">
 	    <label class="item__text" asp-for="Genre"></label>
-	    <input class="item__text" asp-for="Genre" asp-items="Html.GetEnumSelectList<Genre>()"/>
+	    <select class="item__text" asp-for="Genre" asp-items="Html.GetEnumSelectList<Genre>()"></select>
    		<span class="item__warning-msg" asp-validation-for="Genre"></span>
 		</div>
 

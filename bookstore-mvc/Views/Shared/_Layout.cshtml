@@ -4,15 +4,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - bookstore_mvc</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="~/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="~/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="~/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="~/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="msapplication-config" content="~/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/bookstore_mvc.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
+    @* <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">bookstore_mvc</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Logo</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -37,11 +48,9 @@
 
                         <form asp-controller="Books" asp-action="Search">
                             <input name="searchString" type="text" placeholder="Search for a book...">
-                            @* <button class="btn" type="submit">Search</button> *@
                         </form>
 
                         @await Html.PartialAsync("_AuthNavigation")
-                        @* <partial name="_AuthNavigation.cshtml"></partial> *@
 
                         @await Component.InvokeAsync("DisplayCartQuantity")
 
@@ -49,15 +58,91 @@
                 </div>
             </div>
         </nav>
+    </header> *@
+@* 
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black border-bottom box-shadow mb-3">
+            <div class="header">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Logo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="header__middle">
+                    <form asp-controller="Books" asp-action="Search">
+                        <input name="searchString" type="text" placeholder="Search for a book...">
+                    </form>
+                    <ul class="navbar-nav flex-grow-1 navbar-collapse collapse">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Books" asp-action="Index">Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Authors" asp-action="Index">Authors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Publishers" asp-action="Index">Publishers</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav flex-grow-1 navbar-collapse collapse">
+                    @await Html.PartialAsync("_AuthNavigation")
+                    @await Component.InvokeAsync("DisplayCartQuantity")
+                    <li class="nav-item">
+                        <a class="nav-link text-light">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header> *@
+
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-toggleable-md navbar-light">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="header">
+                    <a class="logo" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img class="logo__img" src="/img/icons/logo.svg" alt="Logo">
+                    </a>
+            		<form class="header__form" asp-controller="Books" asp-action="Search">
+                        <input name="searchString" type="text" placeholder="Search for a book...">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </form>
+            		<ul class="header__links navbar-collapse collapse">
+                        @await Html.PartialAsync("_AuthNavigation")
+            			@await Component.InvokeAsync("DisplayCartQuantity")
+            		</ul>
+            		<ul class="header__list navbar-collapse collapse">
+            			<li class="header__item">
+                            <a class="header__link" asp-area="" asp-controller="Books" asp-action="Index">Books</a>
+            			</li>
+            			<li class="header__item">
+                            <a class="header__link" asp-area="" asp-controller="Authors" asp-action="Index">Authors</a>
+            			</li>
+            			<li class="header__item">
+                            <a class="header__link" asp-area="" asp-controller="Publishers" asp-action="Index">Publishers</a>
+            			</li>
+            		</ul>
+                    <ul class="header__links navbar-collapse collapse">
+                        <li class="header__item">
+            		        <a href="" class="header__link">Help</a>
+                        </li>
+                    </ul>
+                </div>
+        </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    <footer class="border-top footer text-muted dark bg-black">
+        <div class="container text-light">
             &copy; 2022 - bookstore_mvc - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>

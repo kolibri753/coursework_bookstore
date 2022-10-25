@@ -33,18 +33,18 @@ namespace bookstore_mvc.Controllers
     //   return View(allBooks);
     // }
 
-
-    public async Task<IActionResult> Search(string searchString)
+    // [HttpPost]
+    public async Task<IActionResult> Search(string searchString, int selectedAuthor, int selectedPublisher, int selectedGenre)
     {
       var allBooks = await _service.GetAllAsync(n => n.Author);
-      var dropdownsData = await _service.GetBookDroupownMenuValues();
 
+      var dropdownsData = await _service.GetBookDroupownMenuValues();
       ViewBag.Authors = new SelectList(dropdownsData.Authors, "Id", "Name");
       ViewBag.Publishers = new SelectList(dropdownsData.Publishers, "Id", "Name");
 
       if (!string.IsNullOrEmpty(searchString))
       {
-        var searchBooks = allBooks.Where(n => n.Title.Contains(searchString) || n.Author.Name.Contains(searchString)).ToList();
+        var searchBooks = allBooks.Where(n => n.Title.ToLower().Contains(searchString.ToLower())).ToList();
         if (searchBooks.Any())
         {
           return View("Index", searchBooks);
@@ -53,11 +53,53 @@ namespace bookstore_mvc.Controllers
         {
           return View("NotFound");
         }
-
       }
+
+      if (selectedAuthor != 0)
+      {
+        var filteredBooks = allBooks.Where(n => n.AuthorId == selectedAuthor).ToList();
+        return View("Index", filteredBooks);
+      }
+
+      if (selectedPublisher != 0)
+      {
+        var filteredBooks = allBooks.Where(n => n.PublisherId == selectedPublisher).ToList();
+        return View("Index", filteredBooks);
+      }
+
+      if (selectedGenre != 0)
+      {
+        var filteredBooks = allBooks.Where(n => (int)n.Genre == selectedGenre).ToList();
+        return View("Index", filteredBooks);
+      }
+
+      // if (selectedAuthor != 0 && selectedPublisher != 0)
+      // {
+      //   var filteredBooks = allBooks.Where(n => n.AuthorId == selectedAuthor && n.PublisherId == selectedPublisher).ToList();
+      //   return View("Index", filteredBooks);
+      // }
 
       return View("Index", allBooks);
     }
+
+    // [HttpPost]
+    // public async Task<IActionResult> Search(int selectedItem)
+    // {
+    //   var allBooks = await _service.GetAllAsync(n => n.Author);
+
+    //   var dropdownsData = await _service.GetBookDroupownMenuValues();
+    //   ViewBag.Authors = new SelectList(dropdownsData.Authors, "Id", "Name");
+    //   ViewBag.Publishers = new SelectList(dropdownsData.Publishers, "Id", "Name");
+
+    //   if (selectedItem != -1)
+    //   {
+    //     var searchBooks = allBooks.Where(n => n.AuthorId == selectedItem).ToList();
+
+    //     return View("Index", searchBooks);
+    //   }
+
+    //   return View("Index", allBooks);
+    // }
 
     //Get: Books/Create
     [HttpGet("Create")]
