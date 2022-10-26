@@ -36,7 +36,6 @@ textarea {
 // .navbar-toggler {
 // 	color: white;
 // }
-
 .navbar {
 	display: block;
 	padding: 0;
@@ -49,7 +48,7 @@ textarea {
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		gap: 5em;
+		gap: 0em;
 	}
 }
 
@@ -62,20 +61,6 @@ textarea {
 		padding: 0.25em;
 	}
 }
-
-// .navbar-expand {
-// 	@include m.respond-to("lg") {
-
-// 		.navbar-toggler {
-// 			display: block;
-// 		}
-// 	}
-// }
-
-// .show {
-// 	position: absolute;
-// 	top: 0em;
-// }
 
 .header {
 	background-color: v.$black;
@@ -120,6 +105,32 @@ textarea {
 			border-top: 5px solid v.$white;
 			border-bottom: 5px solid v.$white;
 		}
+
+		&--account {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			border-radius: 1em;
+			list-style: none;
+			position: absolute;
+			background-color: v.$white;
+			color: v.$black;
+			top: 5em;
+			right: 7em;
+			box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 50%);
+
+			@include m.respond-to("lg") {
+				position: static;
+			}
+
+			li:not(:last-child) {
+				padding-bottom: 0;
+			}
+
+			li {
+				padding: 1em;
+			}
+		}
 	}
 
 	&__item {
@@ -150,7 +161,26 @@ textarea {
 			}
 		}
 	}
+
+	&__link {
+		.username {
+			color: v.$blue;
+		}
+	}
 }
+// .navbar-expand {
+// 	@include m.respond-to("lg") {
+
+// 		.navbar-toggler {
+// 			display: block;
+// 		}
+// 	}
+// }
+
+// .show {
+// 	position: absolute;
+// 	top: 0em;
+// }
 
 // .list {
 // 	&__link {
@@ -185,6 +215,10 @@ textarea {
 	&__title {
 		text-align: center;
 		margin-bottom: 1rem;
+
+		@include m.respond-to("md") {
+			margin-top: 1em;
+		}
 	}
 }
 
@@ -282,6 +316,10 @@ textarea {
 			display: block;
 			width: 100%;
 			height: 2px;
+
+			@include m.respond-to("sm") {
+				bottom: 11em;
+			}
 		}
 	}
 }
@@ -292,6 +330,11 @@ textarea {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
+
+	@include m.respond-to("sm") {
+		flex-direction: column;
+		gap: 1em;
+	}
 }
 
 .item {
@@ -312,6 +355,12 @@ textarea {
 	display: flex;
 	margin-bottom: 1em;
 
+	@include m.respond-to("md") {
+		align-items: center;
+		flex-direction: column;
+		gap: 1em;
+	}
+
 	p {
 		white-space: pre-wrap;
 	}
@@ -322,6 +371,15 @@ textarea {
 		height: 600px;
 		margin-right: 1em;
 		object-fit: cover;
+
+		@include m.respond-to("md") {
+			margin-right: 0em;
+		}
+
+		@include m.respond-to("sm") {
+			width: 250px;
+			height: 375px;
+		}
 	}
 
 	&__img--png {
@@ -409,12 +467,21 @@ textarea {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1em;
+
+	@include m.respond-to("md") {
+		justify-content: center;
+	}
 }
 
 .table {
 	background-color: v.$white;
 
 	&__tbody {
+		@include m.respond-to("sm") {
+			font-size: 12px;
+			overflow-wrap: anywhere;
+		}
+
 		td {
 			font-size: 1.5em;
 		}

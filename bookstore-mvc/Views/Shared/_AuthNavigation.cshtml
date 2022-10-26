@@ -2,20 +2,47 @@
 
 @if (!User.Identity.IsAuthenticated)
 {
-  <li class="header__item">
+  @* <li class="header__item">
     <a class="text-light" asp-area="" asp-controller="Account" asp-action="Login">Account</a>
-    @* <i class="fa-solid fa-user text-light"></i> *@
-  </li>
+    <i class="fa-solid fa-user text-light"></i>
+  </li> *@
+  <li class="header__item">
+    <a class="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      <i class="text-light fa-solid fa-user"></i>
+    </a>
+  </li> 
+  <ul class="header__list--account collapse" id="collapseExample">
+    <li class="header__item">
+      <a class="header__link" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+    </li>
+  </ul>
 }
 else 
 {
-  <li class="header__item">
+  @* <li class="header__item">
     <a class=" text-light" asp-area="" asp-controller="Account" asp-action="Login">@UserManager.GetUserName(User)</a>
   </li>
   <li class="header__item">
     <form class="" asp-controller="Account" asp-action="Logout">
-      @* <a class="nav-link text-dark" asp-area="" >Logout</a> *@
       <button class="btn">Logout</button>
     </form>
-  </li>
+  </li> *@
+  <li class="header__item">
+    <a class="text-light" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      <i class="text-light fa-solid fa-user"></i>
+    </a>
+  </li> 
+  <ul class="header__list--account collapse" id="collapseExample">
+    <li class="header__item">
+      <a class="header__link username" asp-area="" asp-controller="Account" asp-action="Login">@UserManager.GetUserName(User)</a>
+    </li>
+    <li class="header__item">
+      <a class="header__link" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
+    </li>
+    <li class="header__item">
+      <form class="text-light" asp-controller="Account" asp-action="Logout">
+        <button class="btn">Logout</button>
+      </form>
+    </li>
+  </ul>
 }

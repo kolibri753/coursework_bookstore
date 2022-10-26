@@ -100,7 +100,7 @@ textarea {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 5em;
+    gap: 0em;
   }
 }
 
@@ -159,6 +159,30 @@ textarea {
     border-bottom: 5px solid #ffffff;
   }
 }
+.header__list--account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1em;
+  list-style: none;
+  position: absolute;
+  background-color: #ffffff;
+  color: #000000;
+  top: 5em;
+  right: 7em;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 992px) {
+  .header__list--account {
+    position: static;
+  }
+}
+.header__list--account li:not(:last-child) {
+  padding-bottom: 0;
+}
+.header__list--account li {
+  padding: 1em;
+}
 .header__item {
   line-height: 1em;
 }
@@ -182,6 +206,9 @@ textarea {
   .header__links .header__item:last-child {
     line-height: 2em;
   }
+}
+.header__link .username {
+  color: #1b6bd4;
 }
 
 .logo {
@@ -210,6 +237,11 @@ textarea {
 .section__title {
   text-align: center;
   margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+  .section__title {
+    margin-top: 1em;
+  }
 }
 
 .gallery {
@@ -295,12 +327,24 @@ textarea {
   width: 100%;
   height: 2px;
 }
+@media (max-width: 576px) {
+  .form__buttons:before {
+    bottom: 11em;
+  }
+}
 
 .section__buttons,
 .form__buttons {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+}
+@media (max-width: 576px) {
+  .section__buttons,
+.form__buttons {
+    flex-direction: column;
+    gap: 1em;
+  }
 }
 
 .item__text {
@@ -317,6 +361,13 @@ textarea {
   display: flex;
   margin-bottom: 1em;
 }
+@media (max-width: 768px) {
+  .info {
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+  }
+}
 .info p {
   white-space: pre-wrap;
 }
@@ -326,6 +377,17 @@ textarea {
   margin-right: 1em;
   -o-object-fit: cover;
      object-fit: cover;
+}
+@media (max-width: 768px) {
+  .info__img--png, .info__img {
+    margin-right: 0em;
+  }
+}
+@media (max-width: 576px) {
+  .info__img--png, .info__img {
+    width: 250px;
+    height: 375px;
+  }
 }
 .info__img--png {
   -o-object-fit: contain;
@@ -401,9 +463,20 @@ textarea {
   flex-wrap: wrap;
   gap: 1em;
 }
+@media (max-width: 768px) {
+  .books-list {
+    justify-content: center;
+  }
+}
 
 .table {
   background-color: #ffffff;
+}
+@media (max-width: 576px) {
+  .table__tbody {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
 }
 .table__tbody td {
   font-size: 1.5em;
