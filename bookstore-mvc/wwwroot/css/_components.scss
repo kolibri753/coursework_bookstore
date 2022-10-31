@@ -1,7 +1,6 @@
 @use "variables" as v;
 @use "mixins" as m;
 
-
 .fixed-btn,
 .btn {
 	cursor: pointer;
@@ -161,3 +160,17 @@
 	visibility: hidden;
 	color: white;
 }
+
+.carousel {
+	margin-bottom: 2em;
+}
+
+.carousel-item {
+	&__banner-img {
+		background-color: #fff;
+		object-fit: cover;
+		height: 600px;
+		width: 100%;
+	}
+}
+

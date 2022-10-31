@@ -2,12 +2,8 @@
 
 @if (!User.Identity.IsAuthenticated)
 {
-  @* <li class="header__item">
-    <a class="text-light" asp-area="" asp-controller="Account" asp-action="Login">Account</a>
-    <i class="fa-solid fa-user text-light"></i>
-  </li> *@
   <li class="header__item">
-    <a class="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <a class="header__link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
       <i class="text-light fa-solid fa-user"></i>
     </a>
   </li> 
@@ -19,14 +15,6 @@
 }
 else 
 {
-  @* <li class="header__item">
-    <a class=" text-light" asp-area="" asp-controller="Account" asp-action="Login">@UserManager.GetUserName(User)</a>
-  </li>
-  <li class="header__item">
-    <form class="" asp-controller="Account" asp-action="Logout">
-      <button class="btn">Logout</button>
-    </form>
-  </li> *@
   <li class="header__item">
     <a class="text-light" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
       <i class="text-light fa-solid fa-user"></i>

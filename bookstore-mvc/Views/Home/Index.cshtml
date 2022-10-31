@@ -2,7 +2,42 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+@* <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+</div> *@
+
+<section class="carousel slide" id="carousel-banners" data-bs-ride="true">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carousel-banners" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carousel-banners" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carousel-banners" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img class="carousel-item__banner-img" src="/img/bg/book-banner-1.png" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="10000">
+      <img class="carousel-item__banner-img" src="/img/bg/book-banner-2.jpg" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="10000">
+      <img class="carousel-item__banner-img" src="/img/bg/book-banner-3.jpg" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel-banners" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel-banners" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</section>
+
+<section class="section">
+  <h1 class="section__title">New and Trending</h1>
+  <a class="header__link" asp-area="" asp-controller="Books" asp-action="Index">See All</a>
+
+  
+
+</section>

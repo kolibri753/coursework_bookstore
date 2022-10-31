@@ -733,4 +733,16 @@ textarea {
   left: 0;
   visibility: hidden;
   color: white;
+}
+
+.carousel {
+  margin-bottom: 2em;
+}
+
+.carousel-item__banner-img {
+  background-color: #fff;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 600px;
+  width: 100%;
 }/*# sourceMappingURL=site.css.map */
