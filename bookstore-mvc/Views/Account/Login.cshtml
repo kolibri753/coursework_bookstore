@@ -26,15 +26,15 @@
       <input class="item__text" asp-for="Password" />
       <span class="item__warning-msg" asp-validation-for="Password"></span>
     </div>
-    <div class="form__item">
+    @* <div class="form__item">
       <div class="checkbox">
       <label asp-for="RememberMe">
         <input asp-for="RememberMe" />
         @Html.DisplayNameFor(m => m.RememberMe)
       </label>
-    </div>
+    </div> *@
 
-  </div>
+  @* </div> *@
  
   <div class="form__group">
     <button type="submit" class="btn">Log in</button>

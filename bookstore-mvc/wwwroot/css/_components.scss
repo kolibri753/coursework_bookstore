@@ -1,6 +1,11 @@
 @use "variables" as v;
 @use "mixins" as m;
 
+.section-title {
+	display: flex;
+	justify-content: center
+}
+
 .fixed-btn,
 .btn {
 	cursor: pointer;

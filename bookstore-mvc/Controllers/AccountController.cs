@@ -1,4 +1,6 @@
+using System.Security.Claims;
 using bookstore_mvc.Data;
+using bookstore_mvc.Data.Services;
 using bookstore_mvc.Data.Static;
 using bookstore_mvc.Data.ViewModels;
 using bookstore_mvc.Models;
@@ -10,15 +12,36 @@ namespace bookstore_mvc.Controllers
   [Route("[controller]")]
   public class AccountController : Controller
   {
-    private readonly AppDbContext _context;
+   private readonly IAccountService _service;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
 
-    public AccountController(AppDbContext context, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+    public AccountController(IAccountService service, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
     {
-      _context = context;
+      _service = service;
       _userManager = userManager;
       _signInManager = signInManager;
+    }
+
+    [HttpGet]
+    public IActionResult Index()
+    {
+      var userId = _userManager.GetUserId(HttpContext.User);
+      if (userId == null)
+      {
+        return RedirectToAction("Login", "Account");
+      }
+
+      ApplicationUser user = _userManager.FindByIdAsync(userId).Result;
+
+      return View(user);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Index(ApplicationUser userInfo)
+    {
+      await _service.UpdateUserAsync(userInfo);
+      return RedirectToAction(nameof(Index));
     }
 
     [HttpGet("Login")]

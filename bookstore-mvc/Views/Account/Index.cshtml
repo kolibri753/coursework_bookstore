@@ -1,0 +1,61 @@
+@model ApplicationUser
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="section">
+  <h1 class="section-title">@ViewData["Title"]</h1>
+
+  <form class="form" asp-action="Index">
+	  <div asp-validation-summary="ModelOnly"></div>
+		
+    <input class="item__text" asp-for="Id" type="hidden"/>
+    @* <input class="item__text" asp-for="UserName" type="hidden"/> *@
+    <input class="item__text" asp-for="NormalizedUserName" type="hidden"/>
+    @* <input class="item__text" asp-for="Email" type="hidden"/> *@
+    <input class="item__text" asp-for="NormalizedEmail" type="hidden"/>
+    <input class="item__text" asp-for="EmailConfirmed" type="hidden"/>
+    <input class="item__text" asp-for="PasswordHash" type="hidden"/>
+    <input class="item__text" asp-for="SecurityStamp" type="hidden"/>
+    <input class="item__text" asp-for="ConcurrencyStamp" type="hidden"/>
+    @* <input class="item__text" asp-for="PhoneNumber" type="hidden"/> *@
+    <input class="item__text" asp-for="PhoneNumberConfirmed" type="hidden"/>
+    <input class="item__text" asp-for="TwoFactorEnabled" type="hidden"/>
+    <input class="item__text" asp-for="LockoutEnd" type="hidden"/>
+    <input class="item__text" asp-for="LockoutEnabled" type="hidden"/>
+    <input class="item__text" asp-for="AccessFailedCount" type="hidden"/>
+
+    <div class="form__item">
+	    <label class="item__text" asp-for="FullName"></label>
+	    <input class="item__text" asp-for="FullName" />
+   		<span class="item__warning-msg" asp-validation-for="FullName"></span>
+		</div>
+      <div class="form__item">
+	    <label class="item__text" asp-for="UserName"></label>
+	    <input class="item__text" asp-for="UserName" />
+   		<span class="item__warning-msg" asp-validation-for="UserName"></span>
+		</div>
+    <div class="form__item">
+	    <label class="item__text" asp-for="PhoneNumber"></label>
+	    <input class="item__text" asp-for="PhoneNumber" />
+   		<span class="item__warning-msg" asp-validation-for="FullName"></span>
+		</div>
+    <div class="form__item">
+	    <label class="item__text" asp-for="Email"></label>
+	    <input class="item__text" asp-for="Email" />
+   		<span class="item__warning-msg" asp-validation-for="Email"></span>
+		</div>
+
+    <div class="form__buttons">
+      <a class="btn" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
+	    <button class="btn" type="submit">
+				 <span class="btn__text">Update</span>
+  				<i class="fa-solid fa-plus"></i>
+			</button>
+    </div>
+
+			@* <input class="btn reversed" type="submit" value="Create" /> *@
+  </form>
+
+</div>

@@ -3,11 +3,11 @@
 @if (!User.Identity.IsAuthenticated)
 {
   <li class="header__item">
-    <a class="header__link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <a class="header__link" data-bs-toggle="collapse" href="#collapse-user" role="button" aria-expanded="false" aria-controls="collapse-user">
       <i class="text-light fa-solid fa-user"></i>
     </a>
   </li> 
-  <ul class="header__list--account collapse" id="collapseExample">
+  <ul class="header__list--account collapse" id="collapse-user">
     <li class="header__item">
       <a class="header__link" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
     </li>
@@ -16,13 +16,13 @@
 else 
 {
   <li class="header__item">
-    <a class="text-light" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <a class="text-light" data-bs-toggle="collapse" href="#collapse-user" role="button" aria-expanded="false" aria-controls="collapse-user">
       <i class="text-light fa-solid fa-user"></i>
     </a>
   </li> 
-  <ul class="header__list--account collapse" id="collapseExample">
+  <ul class="header__list--account collapse" id="collapse-user">
     <li class="header__item">
-      <a class="header__link username" asp-area="" asp-controller="Account" asp-action="Login">@UserManager.GetUserName(User)</a>
+      <a class="header__link username" asp-area="" asp-controller="Account" asp-action="Index">@UserManager.GetUserName(User)</a>
     </li>
     <li class="header__item">
       <a class="header__link" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>

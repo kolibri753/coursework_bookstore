@@ -588,6 +588,11 @@ textarea {
   gap: 1em;
 }
 
+.section-title {
+  display: flex;
+  justify-content: center;
+}
+
 .fixed-btn,
 .btn {
   cursor: pointer;
