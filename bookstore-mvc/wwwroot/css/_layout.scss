@@ -22,20 +22,6 @@ textarea {
 	white-space: pre-wrap;
 }
 
-// .navbar>.header {
-// 	// display: grid;
-// 	// grid-template-columns: 1fr 1fr 1fr;
-// 	display: flex;
-// 	justify-content: space-between;
-
-// 	&__middle {
-// 		flex-grow: 1;
-// 	}
-// }
-
-// .navbar-toggler {
-// 	color: white;
-// }
 .navbar {
 	display: block;
 	padding: 0;
@@ -60,6 +46,12 @@ textarea {
 	@include m.respond-to("sm") {
 		padding: 0.25em;
 	}
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .header {
@@ -168,27 +160,14 @@ textarea {
 		}
 	}
 }
-// .navbar-expand {
-// 	@include m.respond-to("lg") {
 
-// 		.navbar-toggler {
-// 			display: block;
-// 		}
-// 	}
-// }
+.fixed-top + .container {
+	padding-top: 10.5em;
 
-// .show {
-// 	position: absolute;
-// 	top: 0em;
-// }
-
-// .list {
-// 	&__link {
-// 		@include m.respond-to("md") {
-// 			display: none;
-// 		}
-// 	}
-// }
+	@include m.respond-to("lg") {
+		padding-top: 5.75em;
+	}
+}
 
 .logo {
 	grid-row: 1/3;
@@ -596,10 +575,6 @@ textarea {
 		}
 	}
 }
-
-// .cart-item {
-// 	margin-left: auto;
-// }
 
 .filter {
 	grid-column: 1/-1;

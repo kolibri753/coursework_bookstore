@@ -116,6 +116,12 @@ textarea {
   }
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .header {
   background-color: #000000;
   color: #ffffff;
@@ -209,6 +215,15 @@ textarea {
 }
 .header__link .username {
   color: #1b6bd4;
+}
+
+.fixed-top + .container {
+  padding-top: 10.5em;
+}
+@media (max-width: 992px) {
+  .fixed-top + .container {
+    padding-top: 5.75em;
+  }
 }
 
 .logo {
