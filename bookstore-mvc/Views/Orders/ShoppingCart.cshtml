@@ -8,6 +8,20 @@
 <div class="section">
 	<h1 class="section__title">@ViewData["Title"]</h1>
 
+  @if (Model.ShoppingCart.ShoppingCartItems.Count == 0)
+  {
+    <h3 class="section__title">Shopping Cart is Empty :(</h3>
+    <h5 class="section__title">Add items first!</h5>
+    <div class="section__buttons">
+      <a class="btn reversed" asp-controller="Books" asp-action="Index">
+        <i class="fa-solid fa-left-long"></i>
+  	    <span class="btn__text">Go Back</span>
+  		</a>
+      <a class="btn" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
+    </div>
+    return;
+  }
+
   <table class="table">
     <thead class="table__thead">
       <tr class="table__tr">

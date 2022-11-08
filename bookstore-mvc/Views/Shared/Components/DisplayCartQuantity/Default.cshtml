@@ -2,16 +2,16 @@
 
 @* @if (Model > 0)
 {
-  <li class="nav-item">
-    <a class="nav-link text-dark" asp-controller="Orders" asp-action="ShoppingCart">
-      <i class="fa-solid fa-cart-shopping"></i>
+  <li class="header__item">
+    <a class="text-light" asp-controller="Orders" asp-action="ShoppingCart">
+      <i class="fa-solid fa-cart-shopping text-light"></i>
       <span>@Model</span>
     </a>
   </li>
 } *@
 
 <li class="header__item">
-  <a class=" text-light" asp-controller="Orders" asp-action="ShoppingCart">
+  <a class="text-light" asp-controller="Orders" asp-action="ShoppingCart">
     <i class="fa-solid fa-cart-shopping text-light"></i>
     <span>@Model</span>
   </a>
