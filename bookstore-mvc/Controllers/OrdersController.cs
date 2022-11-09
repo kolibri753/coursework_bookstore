@@ -1,14 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using bookstore_mvc.Data.Cart;
 using bookstore_mvc.Data.Services;
 using bookstore_mvc.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace bookstore_mvc.Controllers
 {

@@ -1,5 +1,3 @@
-using System.Security.Claims;
-using bookstore_mvc.Data;
 using bookstore_mvc.Data.Services;
 using bookstore_mvc.Data.Static;
 using bookstore_mvc.Data.ViewModels;

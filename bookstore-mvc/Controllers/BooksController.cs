@@ -228,7 +228,7 @@ namespace bookstore_mvc.Controllers
     [HttpGet("Delete/{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-      var bookInfo = await _service.GetByIdAsync(id);
+      var bookInfo = await _service.GetBookByIdAsync(id);
 
       if (bookInfo == null)
       {
@@ -242,7 +242,7 @@ namespace bookstore_mvc.Controllers
     [Route("Delete/{id}")]
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
-      var bookInfo = await _service.GetByIdAsync(id);
+      var bookInfo = await _service.GetBookByIdAsync(id);
 
       if (bookInfo == null)
       {

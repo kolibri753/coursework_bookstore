@@ -93,6 +93,105 @@ namespace bookstore_mvc.Data
               AuthorId = 1,
               PublisherId = 1
             },
+            new Book()
+            {
+              ImageURL = "/img/books/HarryPotterAndThePhilosophersStone.jpg",
+              Title = "Harry Potter and the Prisoner of Azkaban",
+              Pages = 317,
+              Price = 280,
+              Quantity = 100,
+              Genre = Genre.Adventure,
+              AuthorId = 1,
+              PublisherId = 1
+            },
+            new Book()
+            {
+              ImageURL = "/img/books/HarryPotterAndThePhilosophersStone.jpg",
+              Title = "Harry Potter and the Goblet of Fire",
+              Pages = 636,
+              Price = 550,
+              Quantity = 100,
+              Genre = Genre.Adventure,
+              AuthorId = 1,
+              PublisherId = 1
+            },
+            new Book()
+            {
+              ImageURL = "/img/books/HarryPotterAndThePhilosophersStone.jpg",
+              Title = "Harry Potter and the Order of the Phoenix",
+              Pages = 766,
+              Price = 700,
+              Quantity = 100,
+              Genre = Genre.Adventure,
+              AuthorId = 1,
+              PublisherId = 1
+            },
+            new Book()
+            {
+              ImageURL = "/img/books/HarryPotterAndThePhilosophersStone.jpg",
+              Title = "Harry Potter and the Half-Blood Prince",
+              Pages = 607,
+              Price = 510,
+              Quantity = 100,
+              Genre = Genre.Adventure,
+              AuthorId = 1,
+              PublisherId = 1
+            },
+            new Book()
+            {
+              ImageURL = "/img/books/HarryPotterAndThePhilosophersStone.jpg",
+              Title = "Harry Potter and the Deathly Hallows",
+              Pages = 605,
+              Price = 550,
+              Quantity = 100,
+              Genre = Genre.Adventure,
+              AuthorId = 1,
+              PublisherId = 1
+            },
+            new Book()
+            {
+              ImageURL = "/img/books/GameOfThrones.jpg",
+              Title = "A Clash of Kings",
+              Pages = 768,
+              Price = 700,
+              Quantity = 100,
+              Genre = Genre.Fantasy,
+              AuthorId = 2,
+              PublisherId = 2
+            },
+            new Book()
+            {
+              ImageURL = "/img/books/GameOfThrones.jpg",
+              Title = "A Storm of Swords",
+              Pages = 973,
+              Price = 820,
+              Quantity = 100,
+              Genre = Genre.Fantasy,
+              AuthorId = 2,
+              PublisherId = 2
+            },
+            new Book()
+            {
+              ImageURL = "/img/books/GameOfThrones.jpg",
+              Title = "A Feast for Crows",
+              Pages = 753,
+              Price = 780,
+              Quantity = 100,
+              Genre = Genre.Fantasy,
+              AuthorId = 2,
+              PublisherId = 2
+            },
+            new Book()
+            {
+              ImageURL = "/img/books/GameOfThrones.jpg",
+              Title = "A Dance with Dragons",
+              Pages = 1056,
+              Price = 900,
+              Quantity = 100,
+              Genre = Genre.Fantasy,
+              AuthorId = 2,
+              PublisherId = 2
+            },
           });
           context.SaveChanges();
         }
