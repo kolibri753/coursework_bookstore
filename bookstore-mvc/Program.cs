@@ -81,4 +81,4 @@ AppDbInitializer.Seed(app);
 AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
 
 app.Run();
-
+public partial class Program { }
