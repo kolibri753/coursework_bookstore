@@ -603,6 +603,42 @@ textarea {
   gap: 1em;
 }
 
+.contact {
+  background-color: #ffffff;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+}
+.contact__phone, .contact__time, .contact__email {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  word-break: break-all;
+}
+.contact__time {
+  display: flex;
+}
+
+.order-guide {
+  background-color: #ffffff;
+  padding: 1em;
+}
+.order-guide__list {
+  padding: 0 1em;
+}
+.order-guide__item {
+  font-size: 1.1em;
+}
+.order-guide__link {
+  font-size: 1.1em;
+}
+.order-guide__link:hover {
+  color: #1b6bd4;
+  text-decoration: underline;
+}
+
 .section-title {
   display: flex;
   justify-content: center;

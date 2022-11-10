@@ -596,3 +596,51 @@ textarea {
 		gap: 1em;
 	}
 }
+
+.contact {
+	background-color: v.$white;
+	padding: 1em;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-bottom: 1em;
+
+	&__phone,
+	&__time,
+	&__email {
+		display: flex;
+		flex-direction: column;
+		padding: 1em;
+		word-break: break-all;
+	}
+
+	&__time {
+		display: flex;
+
+	}
+}
+
+.order-guide {
+	background-color: v.$white;
+	padding: 1em;
+
+
+	&__list {
+		padding: 0 1em;
+	}
+
+	&__item {
+		font-size: 1.1em;	
+		
+	}
+	
+	&__link {
+		font-size: 1.1em;	
+		
+		&:hover {
+			color: v.$blue;
+			text-decoration: underline;
+		}
+	}
+
+}

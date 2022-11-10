@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Help";
+}
+
+<div class="section">
+	<h1 class="section__title">@ViewData["Title"]</h1>
+
+    <h3>Contact Us</h3>
+    <div class="contact">
+        <div class="contact__phone">
+            <h5>Contacts</h5>
+            <span>+380972633619</span>
+            <span>+380677501504</span>
+            <span>+380969359340</span>
+        </div>
+         <div class="contact__email">
+            <h5>Contacts</h5>
+            <span>admin@gmail.com</span>
+            <span>manager@gmail.com</span>
+            <span>vahovskavm2003@gmail.com</span>
+        </div>
+        <div class="contact__time">
+            <h5>Working Hours</h5>
+            <span>10:00 - 19:00</span>
+        </div>
+    </div>
+
+    <h3>How to Order?</h3>
+    <div class="order-guide">
+        <ol class="order-guide__list">
+            <li class="order-guide__item">
+                <a class="order-guide__link" asp-controller="Account" asp-action="Register">Create an Accout</a>
+            </li>
+            <li class="order-guide__item">
+                <a class="order-guide__link" asp-controller="Account" asp-action="Login">Login to your Accout</a>
+            </li>
+            <li class="order-guide__item">
+                <a class="order-guide__link" asp-controller="Books" asp-action="Index">Go to Books page</a>
+            </li>
+            <li class="order-guide__item">
+                Choose a Book and click Info sign
+            </li>
+            <li class="order-guide__item">
+                At Info page click Buy
+            </li>
+            <li class="order-guide__item">
+                <a class="order-guide__link" asp-controller="Orders" asp-action="ShoppingCart">Go to Cart</a>
+            </li>
+            <li class="order-guide__item">
+                Confirm Order
+            </li>
+        </ol>
+    </div>
+
+</div>
