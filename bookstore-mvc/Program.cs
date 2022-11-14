@@ -69,6 +69,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseSession();
 
+app.UseCookiePolicy();
 app.UseAuthentication();
 app.UseAuthorization();
 

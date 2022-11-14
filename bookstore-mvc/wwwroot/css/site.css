@@ -504,10 +504,12 @@ textarea {
 .table__buttons {
   width: 60px;
 }
-.table__buttons a {
+.table__buttons .table__btn {
   font-size: 1em;
+  display: flex;
+  justify-content: center;
 }
-.table__buttons i {
+.table__buttons .table__btn .table__icon {
   margin-left: 0;
 }
 .table__tfoot {
@@ -633,6 +635,7 @@ textarea {
 }
 .order-guide__link {
   font-size: 1.1em;
+  text-decoration: underline;
 }
 .order-guide__link:hover {
   color: #1b6bd4;
@@ -642,6 +645,7 @@ textarea {
 .section-title {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .fixed-btn,

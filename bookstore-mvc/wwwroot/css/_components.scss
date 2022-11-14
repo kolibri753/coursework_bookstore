@@ -3,7 +3,8 @@
 
 .section-title {
 	display: flex;
-	justify-content: center
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .fixed-btn,

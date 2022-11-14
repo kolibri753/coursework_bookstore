@@ -49,9 +49,9 @@ textarea {
 }
 
 .sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
+	position: fixed;
+	top: 0;
+	width: 100%;
 }
 
 .header {
@@ -463,6 +463,12 @@ textarea {
 
 		td {
 			font-size: 1.5em;
+
+			& > img {
+				// @include m.respond-to("lg") {
+				// 	display: none;
+				// }
+			}
 		}
 
 		img {
@@ -475,12 +481,14 @@ textarea {
 	&__buttons {
 		width: 60px;
 
-		a {
+		.table__btn {
 			font-size: 1em;
-		}
-
-		i {
-			margin-left: 0;
+			display: flex;
+			justify-content: center;
+	
+			.table__icon {
+				margin-left: 0;
+			}
 		}
 	}
 
@@ -616,7 +624,6 @@ textarea {
 
 	&__time {
 		display: flex;
-
 	}
 }
 
@@ -624,23 +631,21 @@ textarea {
 	background-color: v.$white;
 	padding: 1em;
 
-
 	&__list {
 		padding: 0 1em;
 	}
 
 	&__item {
-		font-size: 1.1em;	
-		
+		font-size: 1.1em;
 	}
-	
+
 	&__link {
-		font-size: 1.1em;	
-		
+		font-size: 1.1em;
+		text-decoration: underline;
+
 		&:hover {
 			color: v.$blue;
 			text-decoration: underline;
 		}
 	}
-
 }

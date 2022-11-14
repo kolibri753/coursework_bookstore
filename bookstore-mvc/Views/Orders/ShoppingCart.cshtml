@@ -40,20 +40,20 @@
         <tr class="table__tr">
           <td class="table__td">@item.Quantity</td>
           <td class="table__td">
-	        	<img src="@item.Book.ImageURL" class="info__img" id="ImagePreview" alt="cover">
+	        	<img class="info__img" src="@item.Book.ImageURL" id="ImagePreview" alt="cover">
           </td>
           <td class="table__td">@item.Book.Title</td>
           <td class="table__td">@item.Book.Price.ToString("#.## грн'.'")</td>
           <td class="table__td">@((item.Quantity * item.Book.Price).ToString("#.## грн'.'"))</td>
           
           <td class="table__td table__buttons">
-            <a class="btn" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Book.Id">
-      				<i class="fa-solid fa-plus"></i>
+            <a class="table__btn btn" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Book.Id">
+      				<i class="table__icon fa-solid fa-plus"></i>
   			    </a>
           </td>
           <td class="table__td table__buttons">
-            <a class="btn" asp-controller="Orders" asp-action="RemoveItemFromShoppingCart" asp-route-id="@item.Book.Id">
-      				<i class="fa-solid fa-minus"></i>
+            <a class="table__btn btn" asp-controller="Orders" asp-action="RemoveItemFromShoppingCart" asp-route-id="@item.Book.Id">
+      				<i class="table__icon fa-solid fa-minus"></i>
   			    </a>
           </td>
 
